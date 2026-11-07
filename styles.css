@@ -399,3 +399,50 @@ body.in .hero-kicker{animation:rise .8s .2s both}
  .wishes .wish-layout::before{width:170px;height:170px;opacity:.08}
  .finale::before,.finale::after{width:92px;height:92px;opacity:.16}
 }
+
+
+/* Premium sound dock: always accessible, visually unobtrusive, mobile-safe. */
+.sounddock{
+ position:fixed;z-index:285;right:max(15px,env(safe-area-inset-right,0px));
+ bottom:calc(15px + env(safe-area-inset-bottom,0px));
+ display:flex;flex-direction:column;align-items:flex-end;
+ gap:10px;max-width:min(342px,calc(100vw - 26px));font-family:"Outfit",system-ui,sans-serif;
+}
+.sounddock-row{display:flex;align-items:center;justify-content:flex-end;gap:6px}
+.sound-toggle,.sound-settings{
+ min-height:48px;border:1.5px solid #f5cd77;color:#6d1b41;
+ border-radius:100px;background:linear-gradient(145deg,#fffaf6,#ffe6f0 75%,#ffeaba);
+ box-shadow:0 5px 0 #dba14a,0 10px 24px #9d507366;cursor:pointer;
+ transition:transform .18s,box-shadow .18s;touch-action:manipulation;
+}
+.sound-toggle{display:inline-flex;align-items:center;gap:8px;padding:8px 15px;font:700 .83rem/1 "Outfit",sans-serif}
+.sound-settings{display:grid;place-items:center;min-width:48px;font-size:1.4rem}
+.sound-toggle:hover,.sound-settings:hover{transform:translateY(-2px);box-shadow:0 7px 0 #dba14a,0 12px 26px #9d50736e}
+.sound-toggle:active,.sound-settings:active{transform:translateY(3px);box-shadow:0 1px 0 #dba14a}
+.sound-icon{font-size:1.24rem}
+.sound-led{width:8px;height:8px;background:#e9a339;border-radius:50%;box-shadow:0 0 0 4px #e9a33922}
+.sounddock[data-sound="on"] .sound-led{background:#059f7e;box-shadow:0 0 0 4px #059f7e2b,0 0 7px #23a88e}
+.sounddock[data-sound="off"] .sound-led{background:#c6a1aa;box-shadow:none}
+.sound-panel{
+ width:min(318px,calc(100vw - 26px));display:flex;flex-direction:column;
+ gap:11px;padding:17px 18px 16px;border-radius:23px;border:2px solid #f0c876;
+ background:linear-gradient(154deg,#fffefa,#fff0f5);
+ box-shadow:0 8px 0 #e9bf82,0 17px 32px #70304d55;
+ color:#5c2140;text-align:left
+}
+.sound-panel[hidden]{display:none!important}
+.sound-panel h3{font:400 1.48rem/1.1 "Rozha One",Georgia,serif;color:#b3205a}
+.sound-panel .volume-label{display:flex;justify-content:space-between;font-weight:700;font-size:.85rem}
+.sound-panel input[type="range"]{width:100%;min-height:28px;accent-color:#dd2471;cursor:pointer}
+.sound-panel .audio-check{display:flex;align-items:center;gap:9px;font-size:.89rem;font-weight:600;cursor:pointer;line-height:1.4}
+.sound-panel input[type="checkbox"]{width:18px;height:18px;flex:0 0 18px;accent-color:#df216e;cursor:pointer}
+.sound-panel #soundstatus{font-size:.76rem;color:#925775;min-height:1.15rem;line-height:1.4}
+@media(max-width:600px){
+ .sounddock{right:11px;bottom:calc(11px + env(safe-area-inset-bottom,0px))}
+ .sound-toggle{padding:8px 12px;font-size:.75rem;min-height:44px}
+ .sound-settings{min-width:44px;min-height:44px}
+ .sound-panel{padding:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ .sound-toggle,.sound-settings{transition:none!important}
+}
