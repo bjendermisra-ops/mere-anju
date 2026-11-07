@@ -1,18 +1,20 @@
-/* Replace only these image URLs with Malik's real direct HTTPS image links. */
+/* Anju's original uploaded photos. Keep original JPG filenames and store in assets/photos/. */
 window.DIWALI_CONFIG = Object.freeze({
   NAME:"Malik",
   SENDER:"Santosh",
   DATA:{
-    hero:"https://example.com/images/image_001.jpg",
+    hero:"assets/photos/1000321222.jpg",
     photos:[
-      {src:"https://example.com/images/image_002.jpg",cap:"Life Lately"},
-      {src:"https://example.com/images/image_003.jpg",cap:"Window Seat"},
-      {src:"https://example.com/images/image_004.jpg",cap:"Bloom Mode"},
-      {src:"https://example.com/images/image_005.jpg",cap:"Sunside"},
-      {src:"https://example.com/images/image_006.jpg",cap:"Little Treat"},
-      {src:"https://example.com/images/image_007.jpg",cap:"Retro Stop"},
-      {src:"https://example.com/images/image_008.jpg",cap:"Garden Mood"},
-      {src:"https://example.com/images/image_009.jpg",cap:"Side Glance"}
+      {src:"assets/photos/1000321222.jpg",cap:"Hat & Sunshine"},
+      {src:"assets/photos/1000321221.jpg",cap:"Vintage Mood"},
+      {src:"assets/photos/1000321230.jpg",cap:"Bloom Mode"},
+      {src:"assets/photos/1000321229.jpg",cap:"Garden Grace"},
+      {src:"assets/photos/1000321234.jpg",cap:"Little Treat"},
+      {src:"assets/photos/1000358533.jpg",cap:"Royal Elegance"},
+      {src:"assets/photos/1000358532.jpg",cap:"Sweet Celebration"},
+      {src:"assets/photos/1000358537.jpg",cap:"Ocean Breeze"},
+      {src:"assets/photos/1000358541.jpg",cap:"Seaside Glow"},
+      {src:"assets/photos/1000358543.jpg",cap:"Queen Moment"}
     ]
   },
   DUAS:[
