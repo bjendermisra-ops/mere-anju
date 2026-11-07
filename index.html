@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="hi" class="lock">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffaf6">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="A handcrafted Diwali surprise with smiles, wishes, diyas and memories.">
+  <title>Shubh Deepavali, Malik 🪔✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/diya-royal.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="petal-wash" aria-hidden="true"></div>
+  <div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
+  <div class="blob b3" aria-hidden="true"></div><div class="blob b4" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div id="prog" aria-hidden="true"></div>
+  <a class="skip-link" href="#news">Skip to the surprise</a>
+
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer" tabindex="-1">
+    <div class="lbtop"><span id="lbn" aria-live="polite"></span><button type="button" class="lbx" id="lbx" aria-label="Band karein">✕</button></div>
+    <button type="button" class="lbnav lp" id="lbp" aria-label="Pichli photo">‹</button>
+    <button type="button" class="lbnav ln" id="lbnx" aria-label="Agli photo">›</button>
+    <div class="lbv" id="lbv"><div class="lbt" id="lbt"></div></div>
+    <div class="lbcap" id="lbcap"></div><div class="lbth" id="lbth" aria-label="Photo thumbnails"></div>
+  </div>
+
+  <div id="intro" role="region" aria-label="Shubh Deepavali surprise">
+    <div class="cur cl"></div><div class="cur cr"></div>
+    <div class="pets" id="pets" aria-hidden="true"></div>
+    <div class="ic">
+      <div class="fr"></div><div class="fr f2"></div>
+      <svg class="lights deco" id="lights" aria-hidden="true"></svg>
+      <div class="toran deco" id="toran" aria-hidden="true"></div>
+      <img class="lan l1 deco" src="assets/lantern-amber.svg" alt="">
+      <img class="lan l2 deco" src="assets/lantern-rose.svg" alt="">
+      <img class="intro-flower intro-flower-l" src="assets/floral-corner-tl.svg" alt="">
+      <img class="intro-flower intro-flower-r" src="assets/floral-corner-tr.svg" alt="">
+      <div class="ihead">
+        <span class="eyebrow">✦ A LITTLE FESTIVAL MAGIC ✦</span>
+        <h2 class="ishine">शुभ दीपावली</h2>
+        <p class="isub script" id="isub"></p>
+      </div>
+      <div class="stage">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="floor deco"><svg id="rg" viewBox="-150 -150 300 300" aria-hidden="true"></svg></div>
+        <button type="button" class="idiya" id="idiya" aria-label="Diya jalayein">
+          <span class="ring-pulse" aria-hidden="true"></span>
+          <img src="assets/diya-royal.svg" alt="">
+        </button>
+      </div>
+      <div class="bot">
+        <p class="ihint"><span class="fing">👆</span> Diye ko chhuiye aur roshan kijiye</p>
+        <div class="ilines" id="ilines" aria-live="polite"></div>
+        <button type="button" class="cta" id="open">Surprise kholein 🎁</button>
+      </div>
+    </div>
+    <button type="button" id="skip">Skip Intro</button>
+  </div>
+
+  <div class="mq" aria-label="Happy Deepavali"><div>✦ SHUBH DEEPAVALI ✦ HAPPY DIWALI ✦ दीपावली की हार्दिक शुभकामनाएँ ✦ SPECIAL EDITION FOR MALIK ✨ ✦ SHUBH DEEPAVALI ✦ HAPPY DIWALI ✦ दीपावली की हार्दिक शुभकामनाएँ ✦ SPECIAL EDITION FOR MALIK ✨ ✦</div></div>
+
+  <header class="hero" id="top">
+    <img class="hero-deco hdl" src="assets/floral-corner-tl.svg" alt="">
+    <img class="hero-deco hdr" src="assets/floral-corner-tr.svg" alt="">
+    <img class="hero-lan hl1" src="assets/lantern-champagne.svg" alt="">
+    <img class="hero-lan hl2" src="assets/lantern-amber.svg" alt="">
+    <span class="giant" aria-hidden="true">DIWALI</span>
+    <span class="hero-kicker">A little magic, made just for you ✦</span>
+    <div class="hero-layout">
+      <div class="stage3" id="stage3">
+        <div class="tilt" id="tilt">
+          <div class="frame"><img id="heroImg" src="assets/polaroid-pink.svg" alt="Malik's featured Diwali portrait"></div>
+          <span class="st s1">Main Character ✨</span>
+          <span class="st s2">Limited Edition ♡</span>
+          <span class="st s3">Diwali 2026 🪔</span>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <span class="little-flourish">✦ FOR SOMEONE SPECIAL ✦</span>
+        <h1 class="grad" id="hname">Happy Diwali, Malik</h1>
+        <img class="hero-underline" src="assets/heart-ribbon.svg" alt="" loading="lazy">
+        <p class="sub">Ye page sirf aapke liye bana hai. Poora padhna, warna reply pending ka bill aayega. 😌✨</p>
+        <a class="cta" href="#news">Surprise kholein 🎁 <span aria-hidden="true">→</span></a>
+        <span class="hero-note">Scroll for your little festival story ✨</span>
+      </div>
+    </div>
+    <img class="hero-corner-present" src="assets/gift-rose.svg" alt="">
+    <img class="hero-corner-diya" src="assets/diya-rose.svg" alt="">
+  </header>
+
+  <div class="mq r" aria-label="Diwali cheer"><div>🪔 DIYE JALAO ✦ MITHAI KHAO ✦ REPLY BHI KARO ✦ 🪔 DIYE JALAO ✦ MITHAI KHAO ✦ REPLY BHI KARO ✦ 🪔 DIYE JALAO ✦ MITHAI KHAO ✦ REPLY BHI KARO ✦ 🪔 DIYE JALAO ✦ MITHAI KHAO ✦ REPLY BHI KARO ✦</div></div>
+
+  <main>
+    <div class="content-grid first-grid">
+      <section id="news" class="ornate">
+        <span class="tag">⚡ LIVE UPDATE</span>
+        <h2 class="grad">Build log: Diwali Wish v1.0</h2>
+        <p class="lead">Sab kuch test ho chuka hai. Bas ek cheez abhi bhi fail ho rahi hai.</p>
+        <div class="term"><div class="bar"><i></i><i></i><i></i></div><pre id="term" aria-live="polite"></pre></div>
+      </section>
+      <section id="gal" class="ornate">
+        <span class="tag">👑 3D ROYAL GALLERY</span>
+        <h2 class="grad">Malik ka Universe</h2>
+        <p class="lead">Ghumao, ghoomte raho. Har cover ek nayi kahani.</p>
+        <div class="gallery-shell">
+          <div class="ringwrap" id="stage" aria-label="Interactive 3D photo carousel"><div class="photo-ring" id="ring"></div></div>
+          <div class="gal-controls"><button id="gprev" type="button" aria-label="Previous photo">‹</button><div class="cap grad" id="cap" aria-live="polite"></div><button id="gnext" type="button" aria-label="Next photo">›</button></div>
+          <p class="hintm">⟵ swipe ya drag karke ghumaiye ⟶ · photo par tap karke full view dekhein 🔍</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="content-grid second-grid">
+      <section class="ornate">
+        <span class="tag">🃏 TAP KARO</span>
+        <h2 class="grad">Sender ke baare me</h2>
+        <p class="lead">Cards ko palatkar sachchai dekhein.</p>
+        <div class="flips" id="flips"></div>
+      </section>
+
+      <section class="heat-section ornate">
+        <div class="heat">
+          <span class="tag">🔥 SPECIAL DEDICATION</span>
+          <h2 class="grad">Emotional wale bhai ke liye</h2>
+          <p class="lead">Unko bhi dher saari Diwali ki shubhkaamnayein! Unhe ye page dikhane ke baad temperature check karna na bhoolein.</p>
+          <div class="temp" id="temp">24°C</div>
+          <div class="meter" role="progressbar" aria-label="Playful temperature" aria-valuemin="24" aria-valuemax="66" aria-valuenow="24" id="meter"><i id="mfill"></i></div>
+          <p class="m" id="mmsg">Abhi sab normal hai. Page dikhaiye aur dekhiye kya hota hai.</p>
+          <button type="button" class="cta" id="show">Page bhai ko dikhayein 📱</button>
+          <img class="heat-diya" src="assets/diya-marigold.svg" alt="">
+        </div>
+      </section>
+    </div>
+
+    <section id="wishes" class="wishes ornate">
+      <img class="wishes-flower wl" src="assets/floral-corner-bl.svg" alt="">
+      <img class="wishes-flower wr" src="assets/floral-corner-br.svg" alt="">
+      <span class="tag">🪔 PAANCH DIYE</span>
+      <h2 class="grad">Paanch Diye, Paanch Dua</h2>
+      <p class="lead">Har diya jalaiye, har dua aapki hai.</p>
+      <div class="wish-layout">
+        <div class="wish-controls"><div class="diyas" id="diyas"></div><p class="hint" id="hint">0 / 5 diye roshan</p></div>
+        <div class="card reveal" id="reveal" aria-live="polite"><h3>Pehla diya jalaiye</h3><p>Ek chhoti si dua wahan chhupi hai.</p></div>
+      </div>
+    </section>
+
+    <section class="finale ornate" id="finale">
+      <img class="final-flower ff1" src="assets/floral-corner-bl.svg" alt="">
+      <img class="final-flower ff2" src="assets/floral-corner-br.svg" alt="">
+      <img class="final-gift" src="assets/gift-ribbon.svg" alt="">
+      <img class="final-sweet" src="assets/mithai-laddoo.svg" alt="">
+      <span class="tag">✨ THE END (ALMOST)</span>
+      <h2 class="grad" id="fin">Shubh Deepavali, Malik</h2>
+      <p class="t">Aapka har din Diwali jaisa roshan ho. Ab bas ek chhota sa kaam bacha hai: reply. 😄</p>
+      <button type="button" class="cta" id="spark">Reply karein 💬 (ya bas patake phodein)</button>
+      <p class="fine" id="finemsg">Is button ko dabane par reply nahi jaata. Par patake zaroor phootte hain.</p>
+      <p class="sign script">Dher saari shubhkaamnaon ke saath,<span id="snd">Santosh</span> 🪔✨</p>
+    </section>
+  </main>
+  <noscript><p class="noscript">Is festive experience ke liye JavaScript enable karein.</p></noscript>
+</body>
+</html>
