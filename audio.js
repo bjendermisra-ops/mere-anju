@@ -57,7 +57,8 @@
     const pending=kirtan.play();
     if(pending&&typeof pending.then==="function"){
       pending.then(()=>{
-        if(ver!==kirtanPlayVersion||!state.enabled||!state.ambient){kirtan.pause();return;}
+        if(ver!==kirtanPlayVersion)return;
+        if(!state.enabled||!state.ambient){kirtan.pause();return;}
         clearTimeout(fallbackTimeout);
         setKirtanState("playing");
         if(melodyTimer){clearInterval(melodyTimer);melodyTimer=null;}
