@@ -460,3 +460,9 @@ html.lock .sounddock-row{justify-content:flex-start}
  html.lock .sound-toggle .sound-label{display:none}
  html.lock .sound-toggle{padding:8px 10px}
 }
+
+/* Licensed kirtan attribution is visible in the sound settings. */
+.sound-panel .sound-credit{font-size:.69rem;line-height:1.5;color:#825169;
+  padding-top:9px;border-top:1px solid #edd3cc;overflow-wrap:anywhere}
+.sound-panel .sound-credit a{color:#912152;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.sound-panel .sound-credit a:focus-visible{outline:2px solid #a3195f;outline-offset:3px}
