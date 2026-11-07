@@ -24,7 +24,7 @@ for(const viewport of [{name:"mobile",width:390,height:844},{name:"small",width:
   assert.equal(await page.evaluate(()=>window.MereAnjuAudio.getState().fireworkScheduled),true,"Random fireworks must be scheduled");
   await page.locator("#soundsettings").click();
   assert.equal(await page.locator("#soundpanel").isVisible(),true,"Audio settings should open");
-  await page.locator("#soundvolume").fill("25");
+  await page.locator("#soundvolume").evaluate(el=>{el.value="25";el.dispatchEvent(new Event("input",{bubbles:true}));});
   assert.equal(await page.evaluate(()=>Math.round(window.MereAnjuAudio.getState().volume*100)),25,"Volume control must work");
   await page.locator("#soundfireworks").uncheck();
   assert.equal(await page.evaluate(()=>window.MereAnjuAudio.getState().fireworks),false,"Random fireworks switch must disable");
