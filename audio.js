@@ -132,7 +132,7 @@
   function diyaStrike(){
     if(!isActive())return;
     noise(.16,.18,0,1900,"highpass");
-    tone(785,.34,.092,.09,"sine",1240);
+    tone(785,.34,.092,.09,"sine",fxBus,1240);
     tone(1318.5,.9,.06,.22,"sine");
     shimmer(.65);
   }
@@ -165,9 +165,9 @@
     if(!isActive())return;
     const launch=.30+between(.04,.27),bang=delay+launch;
     // Rocket rising in pitch, softened at the beginning.
-    tone(between(510,740),launch,.042*size,delay,"sine",between(1760,2600));
+    tone(between(510,740),launch,.042*size,delay,"sine",fxBus,between(1760,2600));
     noise(launch,.067*size,delay,between(900,1500),"highpass");
-    tone(75,.37,.25*size,bang,"sine",43);
+    tone(75,.37,.25*size,bang,"sine",fxBus,43);
     noise(.16,.32*size,bang,190,"lowpass",.55);
     noise(.25,.25*size,bang+.015,2500,"highpass");
     noise(.72,.12*size,bang+.045,900,"bandpass",.6);
