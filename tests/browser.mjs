@@ -55,7 +55,7 @@ for(const viewport of [{name:"mobile",width:390,height:844},{name:"small",width:
   await page.locator("#lbp").click();
   assert.equal(await page.locator("#lbn").textContent(),current,"Previous photo must work");
   await page.locator("#lbth button").last().click();
-  assert.match(await page.locator("#lbn").textContent(),/8 \/ 8/,"Thumbnail navigation must work");
+  assert.equal(await page.locator("#lbn").textContent(),`${await page.locator("#lbth button").count()} / ${await page.locator("#lbth button").count()}`,"Thumbnail navigation must work");
   await page.locator("#lbx").click();
   assert(await page.locator("#lb").evaluate(el=>!el.classList.contains("on")),"Lightbox must close");
 
