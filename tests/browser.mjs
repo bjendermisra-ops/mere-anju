@@ -22,6 +22,10 @@ for(const viewport of [{name:"mobile",width:390,height:844},{name:"small",width:
   await page.locator("#open").click();
   await page.locator("#intro").waitFor({state:"detached",timeout:5000});
 
+  await page.locator("#news").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(450);
+  assert.match(await page.locator("#term").textContent(),/Deploy successful/,"Build log should type when visited");
+
   const flip=page.locator(".flip").first();
   await flip.click();
   assert(await flip.evaluate(el=>el.classList.contains("on")),"Flip card did not flip");
