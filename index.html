@@ -13,6 +13,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/diya-royal.svg">
   <link rel="stylesheet" href="styles.css">
   <script src="config.js" defer></script>
+  <script src="audio.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -165,6 +166,25 @@
       <p class="sign script">Dher saari shubhkaamnaon ke saath,<span id="snd">Santosh</span> 🪔✨</p>
     </section>
   </main>
+  <!-- Audio is unlocked by the visitor's first tap, in compliance with mobile browser autoplay policies. -->
+  <div id="sounddock" class="sounddock" role="group" aria-label="Festival audio controls" data-sound="ready">
+    <div class="sounddock-row">
+      <button type="button" id="soundtoggle" class="sound-toggle" aria-label="Tap to enable sound" aria-pressed="false">
+        <span class="sound-icon" aria-hidden="true">🔊</span>
+        <span class="sound-label">Tap for Sound</span>
+        <span class="sound-led" aria-hidden="true"></span>
+      </button>
+      <button type="button" id="soundsettings" class="sound-settings" aria-expanded="false" aria-controls="soundpanel" aria-label="Sound settings">⚙</button>
+    </div>
+    <div id="soundpanel" class="sound-panel" hidden>
+      <h3>🎆 Festive Audio</h3>
+      <label class="volume-label" for="soundvolume">Volume <span>🔉</span></label>
+      <input type="range" id="soundvolume" min="5" max="100" step="5" value="40" aria-label="Sound volume"/>
+      <label class="audio-check"><input type="checkbox" id="soundambient" checked/><span>Gentle festive music</span></label>
+      <label class="audio-check"><input type="checkbox" id="soundfireworks" checked/><span>Surprise fireworks sounds</span></label>
+      <p id="soundstatus" role="status">Diya tap karte hi awaaz shuru hogi.</p>
+    </div>
+  </div>
   <noscript><p class="noscript">Is festive experience ke liye JavaScript enable karein.</p></noscript>
 </body>
 </html>
