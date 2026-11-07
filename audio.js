@@ -186,7 +186,7 @@
   function festivalBurst(count=3){
     if(!isActive())return;
     const n=Math.max(1,Math.min(6,count));
-    for(let i=0;i<n;i++) launchFirework(i===0?.9:between(.62,1.04),i*.44+between(0,.12));
+    for(let i=0;i<n;i++) launchFirework(i===0 ? .9 : between(.62,1.04),i*.44+between(0,.12));
   }
 
   const notes=[392,523.25,659.25,783.99,659.25,523.25,440,523.25,
@@ -194,11 +194,11 @@
   function musicTick(){
     if(!isActive()||!state.ambient)return;
     const n=melodyStep++%notes.length;
-    tone(notes[n],.96,.041,0,"sine",notes[n]*.998, musicBus);
+    tone(notes[n],.96,.041,0,"sine",musicBus,notes[n]*.998);
     if(n%4===0){
       const chords=[[261.63,329.63,392],[220,261.63,329.63],[174.61,220,261.63],[196,246.94,293.66]];
       const chord=chords[Math.floor(n/4)%chords.length];
-      chord.forEach((hz,i)=>tone(hz,2.25,.025,i*.035,"triangle",hz,musicBus));
+      chord.forEach((hz,i)=>tone(hz,2.25,.025,i*.035,"triangle",musicBus,hz));
     }
   }
 
