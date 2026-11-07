@@ -410,13 +410,13 @@
   }
   function openLB(i){
     savedY=scrollY;returnFocus=document.activeElement;
-    lb.classList.add("on");lb.setAttribute("aria-hidden","false");
+    lb.inert=false;lb.classList.add("on");lb.setAttribute("aria-hidden","false");
     document.documentElement.classList.add("lock");
     go(i,false);$("lbx").focus({preventScroll:true});
     burst(W*.5,H*.5,22);
   }
   function closeLB(){
-    lb.classList.remove("on");lb.setAttribute("aria-hidden","true");
+    lb.classList.remove("on");lb.setAttribute("aria-hidden","true");lb.inert=true;
     document.documentElement.classList.remove("lock");
     window.scrollTo({top:savedY,behavior:"auto"});
     if(returnFocus && typeof returnFocus.focus==="function")returnFocus.focus({preventScroll:true});
