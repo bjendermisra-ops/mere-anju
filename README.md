@@ -33,3 +33,20 @@ GitHub Pages publishes automatically whenever `main` changes, using `.github/wor
 The repository runs `.github/workflows/quality.yml` for syntax, assets and feature regression checks and `.github/workflows/browser.yml` for real Chromium click, slider, lightbox, intro, diya, keyboard/UI and overflow tests with screenshot artifacts.
 
 Enjoy your special Diwali surprise. ♡
+
+## Festive audio and licensed Hare Krishna kirtan
+
+`audio.js` starts after the visitor's first tap, respecting browser autoplay
+restrictions. The `Sound` panel controls mute, volume, background kirtan,
+and original synthesized firework effects separately. The chant is streamed
+from Wikimedia Commons, not committed to this repository; an offline/network
+failure falls back to a gentle synthesized melody.
+
+**Background kirtan recording:** *Hare Kṛṣṇa Kīrtana and purport*, 1966,
+by **A. C. Bhaktivedanta Swami Prabhupada**, source **BBT International**,
+distributed via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hare_K%E1%B9%9B%E1%B9%A3%E1%B9%87a_K%C4%ABrtana_and_purport.ogg),
+under [Creative Commons Attribution-ShareAlike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/).
+The site plays the original recording unchanged, looping within the kirtan portion
+(before the spoken purport), without modifying or redistributing the recording.
+Sound effects and synthesized fallback melody are original website code and
+not part of the licensed recording. Credits do not imply endorsement.
