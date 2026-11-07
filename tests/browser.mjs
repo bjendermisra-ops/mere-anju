@@ -16,7 +16,25 @@ for(const viewport of [{name:"mobile",width:390,height:844},{name:"small",width:
  try{
   await page.goto(pathToFileURL(path.resolve("index.html")).href,{waitUntil:"domcontentloaded",timeout:20000});
   assert.equal(await page.locator("#intro").count(),1,"Intro not mounted");
+  assert.equal(await page.locator("#sounddock").count(),1,"Audio controls should be mounted");
+  assert.equal(await page.evaluate(()=>window.MereAnjuAudio?.getState().unlocked),false,"Audio must wait for a user gesture");
   await page.locator("#idiya").click();
+  await page.waitForFunction(()=>window.MereAnjuAudio?.getState().unlocked===true,{timeout:6000});
+  assert.equal(await page.evaluate(()=>window.MereAnjuAudio.getState().playing),true,"User tap must unlock the festival audio");
+  assert.equal(await page.evaluate(()=>window.MereAnjuAudio.getState().fireworkScheduled),true,"Random fireworks must be scheduled");
+  await page.locator("#soundsettings").click();
+  assert.equal(await page.locator("#soundpanel").isVisible(),true,"Audio settings should open");
+  await page.locator("#soundvolume").fill("25");
+  assert.equal(await page.evaluate(()=>Math.round(window.MereAnjuAudio.getState().volume*100)),25,"Volume control must work");
+  await page.locator("#soundfireworks").uncheck();
+  assert.equal(await page.evaluate(()=>window.MereAnjuAudio.getState().fireworks),false,"Random fireworks switch must disable");
+  await page.locator("#soundfireworks").check();
+  await page.locator("#soundsettings").click();
+  await page.locator("#soundtoggle").click();
+  assert.equal(await page.evaluate(()=>window.MereAnjuAudio.getState().enabled),false,"Mute control must stop sound");
+  await page.locator("#soundtoggle").click();
+  await page.waitForFunction(()=>window.MereAnjuAudio.getState().playing===true,{timeout:5000});
+
   assert(await page.locator("#intro").evaluate(e=>e.classList.contains("lit")),"Diya must light");
   await page.locator("#open").waitFor({state:"visible",timeout:7000});
   await page.locator("#open").click();
