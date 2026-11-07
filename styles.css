@@ -366,3 +366,13 @@ body.in .hero-kicker{animation:rise .8s .2s both}
  .blob,.mq div,.tilt,.lan,.sd,.pet,.ring-pulse,.fing,.bh,.bc,.diya.on .flame{animation:none!important}
  .fi,.lbt,.cur,.ic,.glow,.pt,.dt{transition-duration:.01ms!important}
 }
+
+/* Animated introduction flame: active only after the visitor lights the diya. */
+.intro-flame{position:absolute;left:50%;top:9%;height:38%;width:21%;transform:translateX(-50%) scale(.15);
+ transform-origin:50% 100%;opacity:0;pointer-events:none;filter:drop-shadow(0 0 10px #ffad41)}
+.intro-flame::before{content:"";position:absolute;inset:0;border-radius:70% 10% 65% 65% / 75% 15% 65% 70%;
+ background:linear-gradient(125deg,#fffcea 15%,#ffdf61 48%,#ffab34 75%,#f46920);transform:rotate(45deg)}
+#intro.lit .intro-flame{opacity:.93;animation:intro-flicker 1.6s .2s ease-in-out infinite alternate}
+@keyframes intro-flicker{0%,100%{transform:translateX(-50%) scale(.82) rotate(-4deg)}
+ 50%{transform:translateX(-50%) scale(1.04) rotate(4deg)}}
+@media(prefers-reduced-motion:reduce){#intro.lit .intro-flame{animation:none;transform:translateX(-50%) scale(1)}}
