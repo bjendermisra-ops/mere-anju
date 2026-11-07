@@ -17,6 +17,11 @@ for(const viewport of [{name:"mobile",width:390,height:844},{name:"small",width:
   await page.goto(pathToFileURL(path.resolve("index.html")).href,{waitUntil:"domcontentloaded",timeout:20000});
   assert.equal(await page.locator("#intro").count(),1,"Intro not mounted");
   assert.equal(await page.locator("#sounddock").count(),1,"Audio controls should be mounted");
+  assert.equal(await page.locator("#soundambient").count(),1,"Kirtan audio switch should be mounted");
+  assert.equal(await page.locator(".sound-credit").count(),1,"Licensed recording attribution should be visible in settings");
+  const kirtan=await page.evaluate(()=>window.MereAnjuAudio?.getState()?.kirtanSource);
+  assert(kirtan?.startsWith("https://upload.wikimedia.org/"),"Licensed recording should use Wikimedia Commons audio");
+
   assert.equal(await page.evaluate(()=>window.MereAnjuAudio?.getState().unlocked),false,"Audio must wait for a user gesture");
   await page.locator("#idiya").click();
   await page.waitForFunction(()=>window.MereAnjuAudio?.getState().unlocked===true,{timeout:6000});
