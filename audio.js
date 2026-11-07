@@ -2,7 +2,7 @@
  * Web Audio fireworks, diya, and gallery effects. The kirtan recording is
  * by A.C. Bhaktivedanta Swami Prabhupada, via Wikimedia Commons, licensed
  * under Creative Commons Attribution-ShareAlike 3.0 Unported.
- * https://commons.wikimedia.org/wiki/File:Hare_K%C5%99%C5%9B%E1%B9%A3%E1%B9%87a_K%C4%ABrtana_and_purport.ogg
+ * https://commons.wikimedia.org/wiki/File:Hare_K%E1%B9%9B%E1%B9%A3%E1%B9%87a_K%C4%ABrtana_and_purport.ogg
  * Audio begins after a genuine user gesture (browser autoplay policy).
  */
 "use strict";
