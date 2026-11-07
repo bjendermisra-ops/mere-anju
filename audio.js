@@ -1,8 +1,9 @@
-/* Mere Anju original festival audio engine.
- * Uses Web Audio synthesis only: no unlicensed music, no external audio,
- * no microphone permission, no autoplay hacks.
- * Audible playback starts on a genuine visitor tap because browsers
- * restrict programmatic autoplay. Sound can be muted at any time.
+/* Mere Anju festival audio engine: licensed Hare Krishna kirtan + original
+ * Web Audio fireworks, diya, and gallery effects. The kirtan recording is
+ * by A.C. Bhaktivedanta Swami Prabhupada, via Wikimedia Commons, licensed
+ * under Creative Commons Attribution-ShareAlike 3.0 Unported.
+ * https://commons.wikimedia.org/wiki/File:Hare_K%C5%99%C5%9B%E1%B9%A3%E1%B9%87a_K%C4%ABrtana_and_purport.ogg
+ * Audio begins after a genuine user gesture (browser autoplay policy).
  */
 "use strict";
 (() => {
@@ -13,6 +14,69 @@
   const toggle=$("soundtoggle"), settings=$("soundsettings"), panel=$("soundpanel");
   const vol=$("soundvolume"), ambient=$("soundambient"), randomFX=$("soundfireworks"), status=$("soundstatus");
   const STORE="mereanju.audio.v1";
+  // Official Wikimedia Commons MP3 transcode of the licensed 1966 recording.
+  // Keep the original recording on its host. Playback uses only the kirtan
+  // portion and loops before the spoken English purport begins.
+  const KIRTAN_URL="https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6b/Hare_K%E1%B9%9B%E1%B9%A3%E1%B9%87a_K%C4%ABrtana_and_purport.ogg/Hare_K%E1%B9%9B%E1%B9%A3%E1%B9%87a_K%C4%ABrtana_and_purport.ogg.mp3";
+  const KIRTAN_LOOP_AT=15*60;
+  const kirtan=new Audio();
+  kirtan.preload="none";
+  kirtan.loop=true;
+  kirtan.playsInline=true;
+  let kirtanStatus="idle", kirtanPlayVersion=0, fallbackTimeout=null;
+  function kirtanVolume(){return Math.min(1,state.volume*.34);}
+  function pauseKirtan(){
+    ++kirtanPlayVersion;
+    clearTimeout(fallbackTimeout);
+    kirtan.pause();
+  }
+  function setKirtanState(next){
+    if(kirtanStatus===next)return;
+    kirtanStatus=next;updateUI();
+  }
+  function beginFallbackMusic(){
+    if(!isActive()||!state.ambient||kirtanStatus==="playing")return;
+    if(melodyTimer)return;
+    setKirtanState("fallback");
+    musicBus.gain.setTargetAtTime(.15,ctx.currentTime,.24);
+    musicTick();
+    melodyTimer=setInterval(musicTick,820);
+  }
+  function startKirtan(fromGesture=false){
+    if(!state.enabled||!state.ambient||document.hidden)return;
+    if(!fromGesture&&!isActive())return;
+    if(kirtanStatus==="playing"&&!kirtan.paused)return;
+    const ver=++kirtanPlayVersion;
+    if(!kirtan.src)kirtan.src=KIRTAN_URL;
+    kirtan.volume=kirtanVolume();
+    setKirtanState("loading");
+    clearTimeout(fallbackTimeout);
+    fallbackTimeout=setTimeout(()=>{
+      if(ver===kirtanPlayVersion&&kirtanStatus!=="playing")beginFallbackMusic();
+    },6500);
+    const pending=kirtan.play();
+    if(pending&&typeof pending.then==="function"){
+      pending.then(()=>{
+        if(ver!==kirtanPlayVersion||!state.enabled||!state.ambient){kirtan.pause();return;}
+        clearTimeout(fallbackTimeout);
+        setKirtanState("playing");
+        if(melodyTimer){clearInterval(melodyTimer);melodyTimer=null;}
+      }).catch(()=>{
+        if(ver!==kirtanPlayVersion)return;
+        beginFallbackMusic();
+      });
+    }
+  }
+  kirtan.addEventListener("timeupdate",()=>{
+    if(kirtan.currentTime>=KIRTAN_LOOP_AT)kirtan.currentTime=0;
+  });
+  kirtan.addEventListener("error",()=>beginFallbackMusic());
+  kirtan.addEventListener("playing",()=>{
+    if(!state.enabled||!state.ambient)return;
+    clearTimeout(fallbackTimeout);
+    setKirtanState("playing");
+    if(melodyTimer){clearInterval(melodyTimer);melodyTimer=null;}
+  });
   let saved={};
   try{saved=JSON.parse(localStorage.getItem(STORE)||"{}")||{}}catch(_){saved={}}
   const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -48,7 +112,11 @@
     ambient.checked=state.ambient;
     randomFX.checked=state.fireworks;
     status.textContent=!state.supported?"Browser mein audio supported nahi hai":
-      !state.enabled?"Audio muted":state.unlocked?"Festive sound is playing ✨":"Diya ya Sound button tap karke awaaz shuru karein";
+      !state.enabled?"Audio muted":!state.unlocked?"Diya ya Sound button tap karke kirtan shuru karein":
+      !state.ambient?"Background kirtan off; festive effects on":
+      kirtanStatus==="playing"?"Hare Krishna kirtan playing 🪷":
+      kirtanStatus==="fallback"?"Kirtan unavailable; gentle music playing":
+      "Hare Krishna kirtan loading…";
     dock.dataset.sound=state.enabled?(state.unlocked?"on":"ready"):"off";
   }
 
@@ -177,6 +245,12 @@
       noise(between(.023,.075),between(.07,.14)*size,bang+jitter,between(1600,5000),"highpass");
     }
     // Duck the melody briefly so the boom remains clear without being loud.
+    const normalKirtanVolume=kirtanVolume();
+    if(kirtanStatus==="playing"){
+      kirtan.volume=normalKirtanVolume*.72;
+      // Restore background chant after the loudest part of each burst.
+      setTimeout(()=>{if(state.enabled&&state.ambient)kirtan.volume=kirtanVolume()},1550);
+    }
     const now=ctx.currentTime;
     musicBus.gain.cancelScheduledValues(now);
     musicBus.gain.setTargetAtTime(.03,now+.01,.055);
@@ -204,12 +278,17 @@
 
   function startLoops(){
     clearInterval(melodyTimer);clearTimeout(fireworkTimer);
+    melodyTimer=null;
     if(!isActive())return;
     if(state.ambient){
-      musicBus.gain.setTargetAtTime(.15,ctx.currentTime,.25);
-      musicTick();
-      melodyTimer=setInterval(musicTick,820);
-    } else musicBus.gain.setTargetAtTime(0,ctx.currentTime,.11);
+      // The kirtan replaces the synthesized melody; the melody is fallback.
+      musicBus.gain.setTargetAtTime(0,ctx.currentTime,.11);
+      startKirtan();
+    } else{
+      pauseKirtan();
+      kirtanStatus="idle";
+      musicBus.gain.setTargetAtTime(0,ctx.currentTime,.11);
+    }
     scheduleFirework(true);
   }
   function scheduleFirework(first=false){
@@ -229,6 +308,7 @@
   function stopLoops(){
     clearInterval(melodyTimer);clearTimeout(fireworkTimer);
     melodyTimer=null;fireworkTimer=null;
+    pauseKirtan();
   }
 
   function enableSound(playCue=true){
@@ -237,6 +317,9 @@
     persist();
     createGraph();
     if(!ctx)return;
+    // Trigger HTMLAudioElement.play() in the actual tap handler, not only
+    // after an async AudioContext promise (important for Safari / WebView).
+    if(state.ambient)startKirtan(true);
     ctx.resume().then(()=>{
       if(!state.enabled)return;
       const first=!state.unlocked;
@@ -268,10 +351,16 @@
     state.volume=Math.min(1,Math.max(.05,Number(vol.value)/100));
     persist();
     if(master&&ctx&&state.enabled)master.gain.setTargetAtTime(state.volume,ctx.currentTime,.075);
+    kirtan.volume=kirtanVolume();
   });
   ambient.addEventListener("change",()=>{
     state.ambient=ambient.checked;persist();
-    if(isActive())startLoops();updateUI();
+    if(!state.ambient){
+      pauseKirtan();kirtanStatus="idle";
+      if(melodyTimer){clearInterval(melodyTimer);melodyTimer=null;}
+      if(ctx)musicBus.gain.setTargetAtTime(0,ctx.currentTime,.12);
+    }else if(isActive())startKirtan(true);
+    updateUI();
   });
   randomFX.addEventListener("change",()=>{
     state.fireworks=randomFX.checked;persist();
@@ -332,7 +421,8 @@
     getState:()=>Object.freeze({
       enabled:state.enabled,unlocked:state.unlocked,supported:state.supported,
       playing:isActive(),ambient:state.ambient,fireworks:state.fireworks,
-      volume:state.volume,backgroundScheduled:!!melodyTimer,fireworkScheduled:!!fireworkTimer
+      volume:state.volume,kirtanStatus,kirtanSource:KIRTAN_URL,
+      backgroundScheduled:!!melodyTimer,fireworkScheduled:!!fireworkTimer
     })
   }),writable:false});
   updateUI();
