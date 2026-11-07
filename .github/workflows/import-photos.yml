@@ -1,0 +1,44 @@
+name: Import Anju photographs
+on:
+  push:
+    paths:
+      - anju-photos.zip
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: import-anju-photos
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Verify archive and extract original photographs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f anju-photos.zip
+          unzip -t anju-photos.zip
+          mkdir -p assets/photos
+          unzip -jo anju-photos.zip '*.jpg' -d assets/photos/
+          for name in 1000321222 1000321221 1000321230 1000321229 1000321234 1000358533 1000358532 1000358537 1000358541 1000358543; do
+            test -s "assets/photos/${name}.jpg"
+          done
+          test "$(find assets/photos -type f -name '*.jpg' | wc -l)" -ge 10
+      - name: Commit all ten photographs to website
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/photos/*.jpg
+          git rm -f anju-photos.zip
+          if ! git diff --cached --quiet; then
+            git commit -m "assets: add Anju original photos to hero and gallery"
+            git push origin HEAD:main
+          fi
