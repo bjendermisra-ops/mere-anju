@@ -45,13 +45,17 @@ const refs=new Set([
 for(const ref of refs)assert(fs.existsSync(path.join(root,ref)),"Missing artwork: "+ref);
 console.log("PASS: "+refs.size+" referenced artwork files resolve");
 
-for(let i=1;i<=9;i++){
- const padded=String(i).padStart(3,"0");
- assert(cfg.includes("https://example.com/images/image_"+padded+".jpg"),"Original replacement URL missing for image "+i);
+const expectedPhotos=[
+"1000321222.jpg","1000321221.jpg","1000321230.jpg","1000321229.jpg","1000321234.jpg",
+"1000358533.jpg","1000358532.jpg","1000358537.jpg","1000358541.jpg","1000358543.jpg"
+];
+for(const name of expectedPhotos){
+  assert(cfg.includes("assets/photos/"+name),"Original JPG filename missing: "+name);
 }
+assert(cfg.includes('hero:"assets/photos/1000321222.jpg"'),"Selected hero is missing");
 assert(cfg.includes('NAME:"Malik"'));
 assert(cfg.includes('SENDER:"Santosh"'));
-console.log("PASS: all original photo URL placeholders and names preserved");
+console.log("PASS: all 10 original photo filenames, selected hero and names preserved");
 
 assert(html.includes('name="theme-color" content="#fffaf6"'));
 assert(css.includes("--paper:#fffdf9"));
