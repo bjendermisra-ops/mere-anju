@@ -376,3 +376,26 @@ body.in .hero-kicker{animation:rise .8s .2s both}
 @keyframes intro-flicker{0%,100%{transform:translateX(-50%) scale(.82) rotate(-4deg)}
  50%{transform:translateX(-50%) scale(1.04) rotate(4deg)}}
 @media(prefers-reduced-motion:reduce){#intro.lit .intro-flame{animation:none;transform:translateX(-50%) scale(1)}}
+
+/* Final visual QA: richer royal festival layering while keeping the light canvas breathable. */
+.skip-link{position:absolute;left:12px;top:-120px}
+.skip-link:focus{position:fixed;top:12px}
+.hero::before{content:"";position:absolute;inset:0 0 auto;height:118px;pointer-events:none;
+ background:url("assets/toran-marigold.svg") repeat-x center top/400px 130px;opacity:.33;z-index:0}
+.hero-copy::before{content:"";position:absolute;right:3%;top:0;width:110px;height:150px;pointer-events:none;z-index:-1;
+ background:url("assets/paisley-rose.svg") center/contain no-repeat;opacity:.16;transform:rotate(19deg)}
+#gal .gallery-shell::after{content:"";position:absolute;bottom:-90px;right:-70px;width:190px;height:190px;
+ pointer-events:none;opacity:.15;background:url("assets/mandala-pink.svg") center/contain no-repeat}
+.wishes .wish-layout{position:relative}
+.wishes .wish-layout::before{content:"";position:absolute;z-index:-1;left:15%;top:-15%;width:260px;height:260px;
+ pointer-events:none;background:url("assets/rangoli-blush.svg") center/contain no-repeat;opacity:.095}
+.finale::before{width:175px;height:175px;top:0;left:-25px;bottom:auto;right:auto;
+ background:url("assets/paisley-champagne.svg") center/contain no-repeat;opacity:.24}
+.finale::after{width:175px;height:175px;top:0;right:-25px;left:auto;bottom:auto;
+ background:url("assets/paisley-mango.svg") center/contain no-repeat;opacity:.24}
+@media(max-width:600px){
+ .hero::before{background-size:260px 100px;height:100px;opacity:.25}
+ .hero-copy::before{width:72px;height:100px;opacity:.12}
+ .wishes .wish-layout::before{width:170px;height:170px;opacity:.08}
+ .finale::before,.finale::after{width:92px;height:92px;opacity:.16}
+}
