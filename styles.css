@@ -446,3 +446,17 @@ body.in .hero-kicker{animation:rise .8s .2s both}
 @media(prefers-reduced-motion:reduce){
  .sound-toggle,.sound-settings{transition:none!important}
 }
+
+
+/* During the intro, keep the sound button away from the lower "Open Surprise"
+   CTA, especially on 320px phones. The control moves back after entering. */
+html.lock .sounddock{
+ top:calc(12px + env(safe-area-inset-top,0px));
+ bottom:auto;left:max(12px,env(safe-area-inset-left,0px));right:auto;
+ align-items:flex-start
+}
+html.lock .sounddock-row{justify-content:flex-start}
+@media(max-width:400px){
+ html.lock .sound-toggle .sound-label{display:none}
+ html.lock .sound-toggle{padding:8px 10px}
+}
