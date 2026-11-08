@@ -1,10 +1,20 @@
-/* Anju's original uploaded photos. Keep original JPG filenames and store in assets/photos/. */
+/* Original photographs and the newly added Diwali portraits. All hosted locally. */
 window.DIWALI_CONFIG = Object.freeze({
   NAME:"Malik",
   SENDER:"Santosh",
   DATA:{
-    hero:"assets/photos/1000321222.jpg",
+    hero:"assets/photos/purple-saree-diya-hero.jpg",
     photos:[
+      {src:"assets/photos/purple-saree-diya-hero.jpg",cap:"The Diwali Glow 🪔"},
+      {src:"assets/photos/red-dress-fairy-lights.jpg",cap:"Midnight Sparkle ✨"},
+      {src:"assets/photos/green-purple-saree-outdoor.jpg",cap:"Royal Emerald"},
+      {src:"assets/photos/magenta-saree-indoor.jpg",cap:"Royal Plum"},
+      {src:"assets/photos/teal-dress-tram.jpg",cap:"Vintage Blue"},
+      {src:"assets/photos/vespa-pink-saree.jpg",cap:"Lavender Vespa"},
+      {src:"assets/photos/collage-purple-saree.jpg",cap:"Purple Scrapbook"},
+      {src:"assets/photos/mirror-selfie-mint.jpg",cap:"Mirror Magic"},
+      {src:"assets/photos/golden-fantasy-palace.jpg",cap:"Golden Fairytale"},
+      {src:"assets/photos/ivory-sequin-indoor.jpg",cap:"Ivory Grace"},
       {src:"assets/photos/1000321222.jpg",cap:"Hat & Sunshine"},
       {src:"assets/photos/1000321221.jpg",cap:"Vintage Mood"},
       {src:"assets/photos/1000321230.jpg",cap:"Bloom Mode"},
