@@ -52,10 +52,20 @@ const expectedPhotos=[
 for(const name of expectedPhotos){
   assert(cfg.includes("assets/photos/"+name),"Original JPG filename missing: "+name);
 }
-assert(cfg.includes('hero:"assets/photos/1000321222.jpg"'),"Selected hero is missing");
+const newPhotos=[
+"collage-purple-saree.jpg","green-purple-saree-outdoor.jpg","magenta-saree-indoor.jpg",
+"teal-dress-tram.jpg","purple-saree-diya-hero.jpg","red-dress-fairy-lights.jpg",
+"mirror-selfie-mint.jpg","golden-fantasy-palace.jpg","ivory-sequin-indoor.jpg","vespa-pink-saree.jpg"
+];
+for(const name of [...expectedPhotos,...newPhotos]){
+  assert(fs.existsSync(path.join(root,"assets/photos",name)),"Photo asset missing: "+name);
+  assert(cfg.includes("assets/photos/"+name),"Photo not referenced in config: "+name);
+}
+assert(cfg.includes('hero:"assets/photos/purple-saree-diya-hero.jpg"'),"New royal Diwali hero missing");
+assert(html.includes("hero-stage-royal"),"New royal hero structure missing");
 assert(cfg.includes('NAME:"Malik"'));
 assert(cfg.includes('SENDER:"Santosh"'));
-console.log("PASS: all 10 original photo filenames, selected hero and names preserved");
+console.log("PASS: all 20 photo assets, original images, new hero and names preserved");
 
 assert(html.includes('name="theme-color" content="#fffaf6"'));
 assert(css.includes("--paper:#fffdf9"));
