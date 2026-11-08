@@ -4,23 +4,31 @@
 
 A white, rose-pink and metallic-gold maximalist Diwali greeting website for Malik, with 40 custom SVG assets. The site is static, with no backend, account tracking, analytics or ad code.
 
-## Replace Malik's photos (on Android, directly in GitHub)
+## Portrait gallery (20 photos) and 2026 royal hero
 
-1. Open `config.js` in the repository.
-2. Tap the pencil (Edit) icon.
-3. Replace each `https://example.com/images/image_00X.jpg` URL with a **direct public HTTPS image URL** ending in JPG, PNG, JPEG or WebP whenever possible. There is 1 hero and 8 gallery photos.
-4. Commit to `main`. GitHub Pages automatically redeploys via `.github/workflows/pages.yml`.
+The site now features **20 locally hosted portraits**, comprising 10 original JPGs
+and 10 new festive JPGs optimized for mobile. New photos were uploaded by the user
+and imported directly to `assets/photos/`. The featured hero is
+`assets/photos/purple-saree-diya-hero.jpg`, showing a festive diya scene.
+The original photos remain in place, and `config.js` controls the gallery order,
+captions and main hero selection.
 
-The example.com links intentionally remain untouched for you. Until replaced, a designed photo-card fallback appears instead of broken-image icons.
+To edit the gallery from Android: open `config.js` on GitHub, tap the pencil
+icon and change the `DATA.hero` path or the `DATA.photos` items. Keep the
+filenames in `assets/photos/` valid; the smoke tests validate all 20 paths.
+GitHub Pages republishes automatically on every commit to `main`.
 
-**Privacy:** This is a public repository and a public website. Only upload photos with permission from the people shown. A public URL means others with the link can view the images.
+**Privacy:** This is a public repository and a public website. Only upload
+photos with permission from the people shown. A public URL means others with
+the link can view the images.
 
 ## Source files
 
 - `index.html`: all original user-facing page sections and accessible UI
 - `styles.css`: complete responsive ivory-and-rose maximalist design
+- `audio.js`: licensed Hare Krishna chant, festive synthesized sound effects, random fireworks and accessible audio controls
 - `app.js`: intro, rangoli, lantern lights, 3D rotating carousel, lightbox, zoom, flip cards, typed terminal, heat meter, five diya wishes, fireworks, scroll progress, particles and keyboard interactions
-- `config.js`: the only file you need to edit for names, texts and image links
+- `config.js`: names, personalized messages, 20 photo paths, captions and the featured hero image
 - `assets/`: 40 individually editable custom SVGs: 4 florals, 4 lanterns, 5 diyas, 3 gifts, 2 sweets, 2 arches, 3 rangolis, 4 mandalas, 3 torans, 4 paisleys, 2 hearts, 2 photo frames and 2 sparkle designs
 - `tests/`: static checks and Playwright interactions across 320px, 390px and 1440px screens
 
