@@ -1,0 +1,63 @@
+
+/* MERI ANJU 2026 — premium sibling celebration design */
+:root{--wine:#401225;--pink:#c91f59;--rani:#8a1241;--gold:#c69a50;--ink:#381c29;--muted:#745368}
+body{background:radial-gradient(circle at 8% 4%,#ffe8d0,transparent 34%),radial-gradient(circle at 91% 30%,#f8ccd9,transparent 42%),#fff8ed}
+body::before{opacity:.075;background-size:520px 520px}
+#prog{background:linear-gradient(90deg,#5b163e,#f1c36e,#a31b4f);height:4px}
+.sister-hero{max-width:none;min-height:min(850px,96svh);overflow:hidden;background:radial-gradient(ellipse at 26% 43%,#632241 0,#2f122b 51%,#160b1b 100%);border-bottom:8px solid #d5a55b;color:#fff1d8;margin:0 auto;padding-top:4rem;box-shadow:0 18px 45px #49152e36}
+.sister-hero::after{border-color:rgba(246,208,144,.24)!important}
+.sister-hero .hero-layout{max-width:1190px}
+.sister-hero .hero-kicker{color:#f7d58a;border-color:#9d6b58;background:#36192a;letter-spacing:.14em}
+.sister-hero .hero-copy h1{max-width:12ch;font-size:clamp(3.15rem,6.7vw,6.65rem);line-height:1.05;filter:drop-shadow(0 6px 25px #17081250)}
+.sister-hero .grad,.sister-hero h1{background:linear-gradient(112deg,#fff9e8 10%,#f8daa0 45%,#f3a9c1 72%,#fff6db);background-clip:text;-webkit-background-clip:text;color:transparent}
+.sister-hero .little-flourish{color:#f3d69c;letter-spacing:.18em;font-weight:800}
+.sister-hero .sub{color:#f7e5e7;font-size:clamp(1rem,1.45vw,1.22rem);max-width:40ch;line-height:1.8}
+.sister-hero .hero-special-line{color:#f5c7b4;font-size:1.1rem}
+.sister-hero .hero-note{color:#e8c6b7}
+.sister-hero .giant{font-size:clamp(5rem,17vw,15rem);color:rgba(255,229,196,.075);top:13%;line-height:1}
+.sister-hero .hero-aurora{background:radial-gradient(circle,#e59b6285,transparent 68%);opacity:.45}
+.sister-hero .tilt{width:clamp(230px,31vw,360px);aspect-ratio:3/4}
+.sister-hero .tilt .frame{padding:11px;background:linear-gradient(132deg,#fff7d6,#e3b358 38%,#a46b31 70%,#fff3c6);box-shadow:0 25px 75px #0009,0 0 50px #a24a6888}
+.sister-hero .tilt img{object-position:center 23%;image-rendering:auto}
+.sister-hero .hero-mini{border-color:#ffe0a5}
+.sister-hero .hero-cta{background:linear-gradient(110deg,#b62b59,#ef7b78,#cf3d60);box-shadow:0 5px 0 #a6783c,0 13px 31px #d35a6570}
+.sister-hero .hero-medallion{background:linear-gradient(120deg,#f8d78e,#e9b45b)}
+.ornate{border-radius:30px;border:1px solid #f4cfaf;box-shadow:0 15px 35px #611e3320;background:linear-gradient(150deg,#fffcf6,#fff1e9)}
+.ornate h2{letter-spacing:-.03em}
+.tag{background:linear-gradient(112deg,#8a1c43,#ca3f62);border-color:#f2cd93;box-shadow:0 3px 0 #b18a4e,0 6px 17px #85214235}
+.cta{background:linear-gradient(120deg,#a62251,#dd4e70,#9a1444)}
+.first-grid,.second-grid{max-width:1220px}
+.ritual-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:1.6rem}
+.sister-ritual,.sister-letter{max-width:1150px;margin:34px auto 18px;text-align:center;padding:clamp(28px,5vw,64px)}
+.sister-ritual{background:radial-gradient(circle at 100% 0,#ffe1d8,transparent 40%),linear-gradient(155deg,#fff9ed,#ffebe5)}
+.sister-ritual .lead,.sister-letter .lead{margin:.7rem auto 1.3rem}
+.ritual-step{display:flex;align-items:center;justify-content:center;flex-direction:column;min-height:178px;gap:7px;background:#fff;border:2px solid #ecd6bc;border-radius:23px;padding:14px 10px;color:#492037;box-shadow:0 9px 0 #e8d3bc;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;touch-action:manipulation}
+.ritual-step:hover,.ritual-step:focus-visible{transform:translateY(-4px)}
+.ritual-step.done{background:linear-gradient(150deg,#fff7d2,#fcdde5);border-color:#d8a35f;box-shadow:0 4px 0 #d1a96b}
+.ritual-step.done::after{content:'✓ Complete';font-size:.72rem;font-weight:800;color:#1f7154}
+.ritual-step:disabled{cursor:default}
+.rs-emoji{font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;filter:drop-shadow(0 5px 4px #dfb1a1)}
+.ritual-step strong{font-size:1.2rem}.ritual-step small{font-size:.73rem;line-height:1.3;text-align:center}
+.ritual-result{max-width:650px;margin:27px auto 0}
+.ritual-progress{height:12px;border:1px solid #ddc19e;background:#fff;overflow:hidden;border-radius:99px}
+.ritual-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#8e1a46,#e7985d,#f3c56f);transition:width .6s}
+#ritualMsg{min-height:2rem;color:#52223c;font-weight:700;font-size:1.07rem;margin:15px 0 4px}
+.ritual-count{font-size:.81rem;color:#98644c}
+.sister-letter{position:relative;background:radial-gradient(circle at 10% 0,#f9c7d0,transparent 40%),radial-gradient(circle at 90% 90%,#f5d3a3,transparent 42%),#fff6e7;border:2px solid #dcb477;overflow:hidden}
+.sister-letter::before{content:'✧';position:absolute;font-size:9rem;top:-2rem;right:1rem;color:#edcba1;opacity:.4;pointer-events:none}
+.letter-spark{color:#9b4b59;letter-spacing:.17em;font-weight:800;font-size:.7rem;display:block}
+.letter-seal{font-size:4rem;display:block;margin:.6rem auto;filter:drop-shadow(0 7px 8px #9f3b4850)}
+.letter-paper{margin:25px auto 0;padding:clamp(20px,5vw,46px);max-width:750px;border-radius:6px 28px 6px 30px;border:1px solid #eacb9e;background:repeating-linear-gradient(#fffdf5,#fffdf5 36px,#f6e8df 37px);color:#4d2b3e;box-shadow:0 14px 34px #6e2d3d25;transform-origin:top;animation:letterReveal .65s cubic-bezier(.2,.9,.2,1) both;text-align:left}
+.letter-paper[hidden]{display:none}
+@keyframes letterReveal{from{opacity:0;transform:translateY(-12px) rotateX(-10deg)}to{opacity:1;transform:none}}
+.letter-date{font-size:.7rem;letter-spacing:.2em;font-weight:800;color:#a76b53}
+.letter-paper h3{font:italic 700 2.2rem 'Playfair Display',serif;margin:14px 0;color:#8a1b4d}
+.letter-paper p{margin:.9rem 0;line-height:1.95;font-size:clamp(.95rem,1.5vw,1.1rem)}
+.letter-paper .letter-sign{font:700 2.1rem 'Caveat',cursive;color:#a52254;text-align:right}
+.share-status{font-size:.85rem!important;color:#6b4557}
+.sister-letter .letter-open{margin-top:0}
+#sounddock{z-index:270}
+@media(max-width:900px){.sister-hero{min-height:unset;padding-top:2rem}.sister-hero .hero-layout{max-width:600px}.sister-hero .hero-copy h1{font-size:clamp(3.1rem,9vw,5.6rem)}.sister-hero .tilt{width:min(63vw,330px)}.sister-hero .hero-stage-royal{padding-top:1.1rem}}
+@media(max-width:600px){.sister-hero{padding:1rem 12px 2.5rem}.sister-hero .hero-stage-royal{min-height:405px}.sister-hero .hero-copy h1{font-size:clamp(2.72rem,10.5vw,4.1rem)}.sister-hero .hero-copy{text-align:center}.sister-hero .hero-copy .hero-underline{margin:0 auto}.sister-hero .hero-cta{margin-left:auto;margin-right:auto}.sister-hero .sub{margin-left:auto;margin-right:auto}.sister-hero .hero-special-line{font-size:.92rem}.sister-hero .hero-note{text-align:center}.sister-hero .hero-mini{width:65px}.sister-ritual,.sister-letter{margin:20px 12px;padding:28px 15px;border-radius:24px}.ritual-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ritual-step{min-height:150px}.sister-letter .letter-seal{font-size:3.2rem}.sister-hero .hero-kicker{font-size:.6rem}.sister-hero .little-flourish{font-size:.63rem;letter-spacing:.1em}}
+@media(max-width:355px){.ritual-step{min-height:140px}.sister-hero .hero-stage-royal{min-height:350px}.sister-hero .hero-copy h1{font-size:2.6rem}}
+@media(prefers-reduced-motion:reduce){.letter-paper{animation:none}.ritual-progress span{transition:none}}
