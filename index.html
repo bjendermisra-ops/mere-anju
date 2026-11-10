@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#fffaf6">
+  <meta name="theme-color" content="#170a18">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="A handcrafted Diwali surprise with smiles, wishes, diyas and memories.">
-  <title>Shubh Deepavali, Malik 🪔✨</title>
+  <meta name="description" content="A handcrafted Bhai Dooj surprise for my sister Anju. Ten memories, a virtual celebration and a forever promise.">
+  <title>Anju ❤️ A Bhai Dooj Surprise From Your Brother</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="assets/diya-royal.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/gift-gold.svg">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="sister.css">
   <script src="config.js" defer></script>
   <script src="audio.js" defer></script>
   <script src="app.js" defer></script>
+  <script src="sister.js" defer></script>
 </head>
 <body>
   <div class="petal-wash" aria-hidden="true"></div>
@@ -32,7 +34,7 @@
     <div class="lbcap" id="lbcap"></div><div class="lbth" id="lbth" aria-label="Photo thumbnails"></div>
   </div>
 
-  <div id="intro" role="region" aria-label="Shubh Deepavali surprise">
+  <div id="intro" role="region" aria-label="Shubh Bhai Dooj surprise">
     <div class="cur cl"></div><div class="cur cr"></div>
     <div class="pets" id="pets" aria-hidden="true"></div>
     <div class="ic">
@@ -45,7 +47,7 @@
       <img class="intro-flower intro-flower-r" src="assets/floral-corner-tr.svg" alt="">
       <div class="ihead">
         <span class="eyebrow">✦ A LITTLE FESTIVAL MAGIC ✦</span>
-        <h2 class="ishine">शुभ दीपावली</h2>
+        <h2 class="ishine">हैप्पी भाई दूज</h2>
         <p class="isub script" id="isub"></p>
       </div>
       <div class="stage">
@@ -58,24 +60,24 @@
         </button>
       </div>
       <div class="bot">
-        <p class="ihint"><span class="fing">👆</span> Diye ko chhuiye aur roshan kijiye</p>
+        <p class="ihint"><span class="fing">👆</span> Pehle ek diya jalaiye, phir surprise kholiye</p>
         <div class="ilines" id="ilines" aria-live="polite"></div>
-        <button type="button" class="cta" id="open">Surprise kholein 🎁</button>
+        <button type="button" class="cta" id="open">Anju ka surprise unlock karo 🎁</button>
       </div>
     </div>
-    <button type="button" id="skip">Skip Intro</button>
+    <button type="button" id="skip">Seedha Surprise →</button>
   </div>
 
-  <div class="mq" aria-label="Happy Deepavali"><div>✦ SHUBH DEEPAVALI ✦ HAPPY DIWALI ✦ दीपावली की हार्दिक शुभकामनाएँ ✦ SPECIAL EDITION FOR MALIK ✨ ✦ SHUBH DEEPAVALI ✦ HAPPY DIWALI ✦ दीपावली की हार्दिक शुभकामनाएँ ✦ SPECIAL EDITION FOR MALIK ✨ ✦</div></div>
+  <div class="mq" aria-label="Happy Bhai Dooj"><div>✦ HAPPY BHAI DOOJ ✦ HAPPY BHAI DOOJ ✦ भाई दूज की ढेर सारी शुभकामनाएँ ✦ SPECIAL EDITION FOR MALIK ✨ ✦ HAPPY BHAI DOOJ ✦ HAPPY BHAI DOOJ ✦ भाई दूज की ढेर सारी शुभकामनाएँ ✦ SPECIAL EDITION FOR MALIK ✨ ✦</div></div>
 
-  <header class="hero hero-grand" id="top">
+  <header class="hero hero-grand sister-hero" id="top">
     <img class="hero-deco hdl" src="assets/floral-corner-tl.svg" alt="">
     <img class="hero-deco hdr" src="assets/floral-corner-tr.svg" alt="">
     <img class="hero-lan hl1" src="assets/lantern-champagne.svg" alt="">
     <img class="hero-lan hl2" src="assets/lantern-amber.svg" alt="">
     <div class="hero-aurora" aria-hidden="true"></div>
-    <span class="giant" aria-hidden="true">DIWALI</span>
-    <span class="hero-kicker"><span aria-hidden="true">✦</span> THE DEEPAVALI EDITION · 2026 <span aria-hidden="true">✦</span></span>
+    <span class="giant" aria-hidden="true">BHAI DOOJ</span>
+    <span class="hero-kicker"><span aria-hidden="true">✦</span> THE SIBLING CHRONICLES · 2026 <span aria-hidden="true">✦</span></span>
     <div class="hero-layout">
       <div class="stage3 hero-stage-royal" id="stage3">
         <div class="royal-orbit" aria-hidden="true"></div>
@@ -84,49 +86,49 @@
         <span class="royal-spark spark-c" aria-hidden="true">✦</span>
         <div class="tilt" id="tilt">
           <div class="frame">
-            <img id="heroImg" src="assets/photos/purple-saree-diya-hero.jpg"
-                 alt="Beautiful festive portrait lighting a diya" fetchpriority="high" decoding="async">
+            <img id="heroImg" src="assets/photos/sister-01.webp"
+                 alt="Anju in a maroon outfit with a hand-painted crimson heart" fetchpriority="high" decoding="async">
           </div>
           <span class="st s1">Main Character ✨</span>
-          <span class="st s2">Diwali Queen ♡</span>
-          <span class="st s3">2026 · Special Edition 🪔</span>
+          <span class="st s2">Best Sister ♡</span>
+          <span class="st s3">Bhai Dooj · Special Edition ❤️</span>
         </div>
         <figure class="hero-mini hero-mini-one" aria-hidden="true">
-          <img src="assets/photos/red-dress-fairy-lights.jpg" alt="" loading="lazy" decoding="async">
+          <img src="assets/photos/sister-04.webp" alt="" loading="lazy" decoding="async">
         </figure>
         <figure class="hero-mini hero-mini-two" aria-hidden="true">
-          <img src="assets/photos/green-purple-saree-outdoor.jpg" alt="" loading="lazy" decoding="async">
+          <img src="assets/photos/sister-09.webp" alt="" loading="lazy" decoding="async">
         </figure>
         <span class="hero-medallion" aria-hidden="true">🪔</span>
       </div>
       <div class="hero-copy">
-        <span class="little-flourish">✦ A FESTIVAL WISH, ONLY FOR YOU ✦</span>
-        <h1 class="grad" id="hname">Happy Diwali, Malik</h1>
-        <div class="hero-special-line"><span aria-hidden="true">✧</span> A little light. A lot of magic. <span aria-hidden="true">✧</span></div>
+        <span class="little-flourish">✦ MADE BY A BROTHER, ONLY FOR HIS SISTER ✦</span>
+        <h1 class="grad" id="hname">Happy Bhai Dooj, Anju</h1>
+        <div class="hero-special-line"><span aria-hidden="true">✧</span> A little nok-jhok. A lifetime of love. <span aria-hidden="true">✧</span></div>
         <img class="hero-underline" src="assets/heart-ribbon.svg" alt="" loading="lazy">
-        <p class="sub">Kuch tasveerein, kuch yaadein aur dher saari roshni… Ye Diwali surprise sirf aapke liye. 🪔✨</p>
+        <p class="sub">Anju, hum ladte bhi hain, haste bhi hain. Lekin tera bhai hamesha tere side hai. Ye ten memories aur ek dil-se surprise sirf tere liye. ❤️</p>
         <a class="cta hero-cta" href="#news">Apna surprise dekhiye 🎁 <span aria-hidden="true">→</span></a>
-        <span class="hero-note">20 beautiful moments · wishes · a little festive magic ♡</span>
+        <span class="hero-note">10 real moments · 5 promises · a secret letter 💌</span>
       </div>
     </div>
     <img class="hero-corner-present" src="assets/gift-rose.svg" alt="">
     <img class="hero-corner-diya" src="assets/diya-rose.svg" alt="">
   </header>
 
-  <div class="mq r" aria-label="Diwali cheer"><div>🪔 DIYE JALAO ✦ MITHAI KHAO ✦ REPLY BHI KARO ✦ 🪔 DIYE JALAO ✦ MITHAI KHAO ✦ REPLY BHI KARO ✦ 🪔 DIYE JALAO ✦ MITHAI KHAO ✦ REPLY BHI KARO ✦ 🪔 DIYE JALAO ✦ MITHAI KHAO ✦ REPLY BHI KARO ✦</div></div>
+  <div class="mq r" aria-label="Bhai Dooj cheer"><div>❤️ TEASING LIFETIME ✦ PROTECTION ALWAYS ✦ TEAM ANJU ✦ ❤️ TEASING LIFETIME ✦ PROTECTION ALWAYS ✦ TEAM ANJU ✦ ❤️ TEASING LIFETIME ✦ PROTECTION ALWAYS ✦ TEAM ANJU ✦ ❤️ TEASING LIFETIME ✦ PROTECTION ALWAYS ✦ TEAM ANJU ✦</div></div>
 
   <main>
     <div class="content-grid first-grid">
       <section id="news" class="ornate">
         <span class="tag">⚡ LIVE UPDATE</span>
-        <h2 class="grad">Build log: Diwali Wish v1.0</h2>
-        <p class="lead">Sab kuch test ho chuka hai. Bas ek cheez abhi bhi fail ho rahi hai.</p>
+        <h2 class="grad">Operation: Anju Surprise</h2>
+        <p class="lead">Code deploy ho gaya. Ab check karte hain: duniya ki sabse shaitaan aur pyaari behen kaun? 😎</p>
         <div class="term"><div class="bar"><i></i><i></i><i></i></div><pre id="term" aria-live="polite"></pre></div>
       </section>
       <section id="gal" class="ornate">
         <span class="tag">👑 3D ROYAL GALLERY</span>
-        <h2 class="grad">Malik ka Universe</h2>
-        <p class="lead">Ghumao, ghoomte raho. Har cover ek nayi kahani.</p>
+        <h2 class="grad">Anju's Memory Universe</h2>
+        <p class="lead">10 real photos, 10 moods. Swipe karo, zoom karo—sabhi memories tumhari.</p>
         <div class="gallery-shell">
           <div class="ringwrap" id="stage" aria-label="Interactive 3D photo carousel"><div class="photo-ring" id="ring"></div></div>
           <div class="gal-controls"><button id="gprev" type="button" aria-label="Previous photo">‹</button><div class="cap grad" id="cap" aria-live="polite"></div><button id="gnext" type="button" aria-label="Next photo">›</button></div>
@@ -138,20 +140,20 @@
     <div class="content-grid second-grid">
       <section class="ornate">
         <span class="tag">🃏 TAP KARO</span>
-        <h2 class="grad">Sender ke baare me</h2>
-        <p class="lead">Cards ko palatkar sachchai dekhein.</p>
+        <h2 class="grad">Tere Bhai Ke Secrets</h2>
+        <p class="lead">Chaar cards, chaar sach, aur bahut saari masti.</p>
         <div class="flips" id="flips"></div>
       </section>
 
       <section class="heat-section ornate">
         <div class="heat">
           <span class="tag">🔥 SPECIAL DEDICATION</span>
-          <h2 class="grad">Emotional wale bhai ke liye</h2>
-          <p class="lead">Unko bhi dher saari Diwali ki shubhkaamnayein! Unhe ye page dikhane ke baad temperature check karna na bhoolein.</p>
+          <h2 class="grad">Sibling Chaos Meter</h2>
+          <p class="lead">Hamari nok-jhok kitni legendary hai? Tap karo aur dekh lo. Warning: drama unlimited! 😂</p>
           <div class="temp" id="temp">24°C</div>
           <div class="meter" role="progressbar" aria-label="Playful temperature" aria-valuemin="24" aria-valuemax="66" aria-valuenow="24" id="meter"><i id="mfill"></i></div>
-          <p class="m" id="mmsg">Abhi sab normal hai. Page dikhaiye aur dekhiye kya hota hai.</p>
-          <button type="button" class="cta" id="show">Page bhai ko dikhayein 📱</button>
+          <p class="m" id="mmsg">Abhi sab shaant hai. Anju mode activate karo.</p>
+          <button type="button" class="cta" id="show">Nok-Jhok Level Badhao 😂</button>
           <img class="heat-diya" src="assets/diya-marigold.svg" alt="">
         </div>
       </section>
@@ -161,11 +163,46 @@
       <img class="wishes-flower wl" src="assets/floral-corner-bl.svg" alt="">
       <img class="wishes-flower wr" src="assets/floral-corner-br.svg" alt="">
       <span class="tag">🪔 PAANCH DIYE</span>
-      <h2 class="grad">Paanch Diye, Paanch Dua</h2>
-      <p class="lead">Har diya jalaiye, har dua aapki hai.</p>
+      <h2 class="grad">5 Diyas. 5 Promises.</h2>
+      <p class="lead">Har diya tere liye ek promise hai, Anju. Saare jalakar dekh.</p>
       <div class="wish-layout">
         <div class="wish-controls"><div class="diyas" id="diyas"></div><p class="hint" id="hint">0 / 5 diye roshan</p></div>
         <div class="card reveal" id="reveal" aria-live="polite"><h3>Pehla diya jalaiye</h3><p>Ek chhoti si dua wahan chhupi hai.</p></div>
+      </div>
+    </section>
+
+
+    <section id="ritual" class="ornate sister-ritual">
+      <span class="tag">🪷 THE VIRTUAL BHAI DOOJ</span>
+      <h2 class="grad">4 Steps. Ek Lifetime Bond.</h2>
+      <p class="lead">Tu paas ho ya door, humara Bhai Dooj complete hoga. Har ritual tap kar aur bhai ka virtual pyaar unlock kar.</p>
+      <div class="ritual-steps" role="group" aria-label="Four Bhai Dooj rituals">
+        <button type="button" class="ritual-step" data-ritual="0"><span class="rs-emoji">🔴</span><strong>Tilak</strong><small>Respect & blessings</small></button>
+        <button type="button" class="ritual-step" data-ritual="1"><span class="rs-emoji">🪔</span><strong>Aarti</strong><small>Light for your path</small></button>
+        <button type="button" class="ritual-step" data-ritual="2"><span class="rs-emoji">🍬</span><strong>Mithai</strong><small>Sweet moments</small></button>
+        <button type="button" class="ritual-step" data-ritual="3"><span class="rs-emoji">🎁</span><strong>Gift</strong><small>A forever promise</small></button>
+      </div>
+      <div class="ritual-result">
+        <div class="ritual-progress"><span id="ritualBar"></span></div>
+        <p id="ritualMsg" role="status" aria-live="polite">Tilak se shuru karte hain. ❤️</p>
+        <div class="ritual-count" id="ritualCount">0 / 4 rituals unlocked</div>
+      </div>
+    </section>
+    <section id="letter" class="ornate sister-letter">
+      <span class="letter-spark">✦ FOR YOUR EYES ONLY ✦</span>
+      <span class="letter-seal" aria-hidden="true">💌</span>
+      <h2 class="grad">Ek Chitthi, Sirf Meri Behen Ke Naam</h2>
+      <p class="lead">Sabse khaas gift code mein nahi, dil mein likha hai.</p>
+      <button type="button" class="cta letter-open" id="letterOpen" aria-controls="letterBody" aria-expanded="false">Seal Todkar Chitthi Padho 💌</button>
+      <div id="letterBody" class="letter-paper" hidden>
+        <span class="letter-date">BHAI DOOJ · 2026</span>
+        <h3>Dear Anju,</h3>
+        <p>Kabhi kabhi hum ek doosre ko tang karte hain. Kabhi baaton mein jeetne ke liye dono zid karte hain. Lekin sach yeh hai: life ke kisi bhi level par tu akeli nahi hai.</p>
+        <p>Jitni bhi doori ho, jitni bhi problems aayen—tera bhai hamesha teri side pe hai. Teri har chhoti achievement mere liye celebration hai. Aur teri har pareshani mein main ek call ki doori par.</p>
+        <p>Tu bas hasti reh, apne sapne poore karti reh, aur kabhi bhoolna mat ki tu bahut special hai. Happy Bhai Dooj, meri behen. ❤️</p>
+        <p class="letter-sign">— Tera bhai, Santosh</p>
+        <button type="button" class="cta" id="shareWish">Ye surprise share karo ↗</button>
+        <p class="share-status" id="shareStatus" role="status"></p>
       </div>
     </section>
 
@@ -175,11 +212,11 @@
       <img class="final-gift" src="assets/gift-ribbon.svg" alt="">
       <img class="final-sweet" src="assets/mithai-laddoo.svg" alt="">
       <span class="tag">✨ THE END (ALMOST)</span>
-      <h2 class="grad" id="fin">Shubh Deepavali, Malik</h2>
-      <p class="t">Aapka har din Diwali jaisa roshan ho. Ab bas ek chhota sa kaam bacha hai: reply. 😄</p>
-      <button type="button" class="cta" id="spark">Reply karein 💬 (ya bas patake phodein)</button>
-      <p class="fine" id="finemsg">Is button ko dabane par reply nahi jaata. Par patake zaroor phootte hain.</p>
-      <p class="sign script">Dher saari shubhkaamnaon ke saath,<span id="snd">Santosh</span> 🪔✨</p>
+      <h2 class="grad" id="fin">Happy Bhai Dooj, Anju</h2>
+      <p class="t">Tere liye khushiyan, himmat, pyaar aur hamesha saath. Ab mithai kab khila rahi hai? 😄</p>
+      <button type="button" class="cta" id="spark">Ek Baar Aur Celebrate 🎊</button>
+      <p class="fine" id="finemsg">Is button se khushiyon ki baarish hogi. Shikayat allowed nahi. 😂</p>
+      <p class="sign script">Pyaar aur nok-jhok ke saath,<span id="snd">Santosh</span> 🪔✨</p>
     </section>
   </main>
   <!-- Audio is unlocked by the visitor's first tap, in compliance with mobile browser autoplay policies. -->
@@ -193,11 +230,11 @@
       <button type="button" id="soundsettings" class="sound-settings" aria-expanded="false" aria-controls="soundpanel" aria-label="Sound settings">⚙</button>
     </div>
     <div id="soundpanel" class="sound-panel" hidden>
-      <h3>🎆 Festive Audio</h3>
+      <h3>🎶 Surprise Audio</h3>
       <label class="volume-label" for="soundvolume">Volume <span>🔉</span></label>
       <input type="range" id="soundvolume" min="5" max="100" step="5" value="40" aria-label="Sound volume"/>
       <label class="audio-check"><input type="checkbox" id="soundambient" checked/><span>🪷 Hare Krishna Mahamantra Kirtan</span></label>
-      <label class="audio-check"><input type="checkbox" id="soundfireworks" checked/><span>Surprise fireworks sounds</span></label>
+      <label class="audio-check"><input type="checkbox" id="soundfireworks" checked/><span>Celebration sparkle sounds</span></label>
       <p id="soundstatus" role="status">Diya tap karte hi awaaz shuru hogi.</p>
       <p class="sound-credit">Kirtan: Śrīla Prabhupāda · <a href="https://commons.wikimedia.org/wiki/File:Hare_K%E1%B9%9B%E1%B9%A3%E1%B9%87a_K%C4%ABrtana_and_purport.ogg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>. Recording unaltered; original festival effects separate.</p>
     </div>
