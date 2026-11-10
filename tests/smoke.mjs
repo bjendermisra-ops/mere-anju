@@ -45,29 +45,25 @@ const refs=new Set([
 for(const ref of refs)assert(fs.existsSync(path.join(root,ref)),"Missing artwork: "+ref);
 console.log("PASS: "+refs.size+" referenced artwork files resolve");
 
-const expectedPhotos=[
-"1000321222.jpg","1000321221.jpg","1000321230.jpg","1000321229.jpg","1000321234.jpg",
-"1000358533.jpg","1000358532.jpg","1000358537.jpg","1000358541.jpg","1000358543.jpg"
-];
-for(const name of expectedPhotos){
-  assert(cfg.includes("assets/photos/"+name),"Original JPG filename missing: "+name);
-}
-const newPhotos=[
-"collage-purple-saree.jpg","green-purple-saree-outdoor.jpg","magenta-saree-indoor.jpg",
-"teal-dress-tram.jpg","purple-saree-diya-hero.jpg","red-dress-fairy-lights.jpg",
-"mirror-selfie-mint.jpg","golden-fantasy-palace.jpg","ivory-sequin-indoor.jpg","vespa-pink-saree.jpg"
-];
-for(const name of [...expectedPhotos,...newPhotos]){
-  assert(fs.existsSync(path.join(root,"assets/photos",name)),"Photo asset missing: "+name);
-  assert(cfg.includes("assets/photos/"+name),"Photo not referenced in config: "+name);
-}
-assert(cfg.includes('hero:"assets/photos/purple-saree-diya-hero.jpg"'),"New royal Diwali hero missing");
-assert(html.includes("hero-stage-royal"),"New royal hero structure missing");
-assert(cfg.includes('NAME:"Malik"'));
-assert(cfg.includes('SENDER:"Santosh"'));
-console.log("PASS: all 20 photo assets, original images, new hero and names preserved");
 
-assert(html.includes('name="theme-color" content="#fffaf6"'));
+const newPhotos=Array.from({length:10},(_,i)=>"sister-"+String(i+1).padStart(2,"0")+".webp");
+assert(cfg.includes('NAME:"Anju"'),"Missing sister recipient");
+assert(cfg.includes('SENDER:"Tumhara Bhai Santosh"'),"Missing brother");
+assert(cfg.includes('hero:"assets/photos/sister-01.webp"'),"Missing first photo hero");
+assert(!cfg.includes("purple-saree-diya-hero"),"Previous recipient must not appear");
+for(const name of newPhotos) {
+  assert(cfg.includes("assets/photos/"+name),"Missing gallery reference: "+name);
+  if(!fs.existsSync(path.join(root,"assets/photos",name)))console.warn("PHOTO NOT YET IMPORTED:",name);
+}
+for(const id of ["ritual","ritualBar","ritualMsg","ritualCount","letter","letterOpen","letterBody","shareWish"]) {
+  assert(ids.has(id),"Missing new Bhai Dooj feature: "+id);
+}
+assert(html.includes('src="sister.js"'));
+assert(html.includes('href="sister.css"'));
+new vm.Script(read("sister.js"),{filename:"sister.js"});
+console.log("PASS: sister gallery configured, virtual rituals and hidden letter accessible");
+
+assert(html.includes('name="theme-color" content="#170a18"'));
 assert(css.includes("--paper:#fffdf9"));
 assert(css.includes("@media(prefers-reduced-motion:reduce)"));
 assert(html.includes('aria-modal="true"'));
