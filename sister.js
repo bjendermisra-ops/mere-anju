@@ -1,5 +1,11 @@
 "use strict";
 (() => {
+  // The thumbnail/hero assets arrive via the one-ZIP photo importer; keep the page graceful until then.
+  document.querySelectorAll(".sister-hero .hero-mini img").forEach(img=>{
+    const fallback=()=>{if(img.dataset.fallback)return;img.dataset.fallback="true";img.src="assets/polaroid-gold.svg";};
+    img.addEventListener("error",fallback,{once:true});
+    if(img.complete && img.naturalWidth===0)fallback();
+  });
   const steps=[...document.querySelectorAll(".ritual-step")];
   const progress=document.getElementById("ritualBar");
   const message=document.getElementById("ritualMsg");
