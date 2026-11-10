@@ -1,8 +1,8 @@
 "use strict";
 (() => {
-  const cfg = window.DIWALI_CONFIG;
+  const cfg = window.BHAI_DOOJ_CONFIG;
   if (!cfg || !cfg.DATA || !Array.isArray(cfg.DATA.photos) || !cfg.DATA.photos.length) {
-    document.body.insertAdjacentHTML("afterbegin", '<p role="alert">Please restore config.js: Diwali photo configuration is missing.</p>');
+    document.body.insertAdjacentHTML("afterbegin", '<p role="alert">Please restore config.js: Bhai Dooj photo configuration is missing.</p>');
     document.documentElement.classList.remove("lock");
     return;
   }
@@ -12,11 +12,11 @@
   const $=(id)=>document.getElementById(id);
   const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  $("hname").textContent="Happy Diwali, "+NAME;
-  $("fin").textContent="Shubh Deepavali, "+NAME;
+  $("hname").textContent="Happy Bhai Dooj, "+NAME;
+  $("fin").textContent="Happy Bhai Dooj, "+NAME;
   $("snd").textContent=SENDER;
-  $("isub").textContent=NAME+", aapke liye ek shahi surprise intezaar kar raha hai ♡";
-  document.title="Shubh Deepavali, "+NAME+" 🪔✨";
+  $("isub").textContent=NAME+", tere bhai ne kuch dil se banaya hai! ❤️";
+  document.title="Shubh Bhai Dooj, "+NAME+" 🪔✨";
 
   const fallback="assets/polaroid-pink.svg";
   function setPhoto(im,src,caption){
@@ -143,11 +143,7 @@
   }
 
   let introLit=false,entered=false;
-  const LN=[
-    "Namaste, "+NAME+" 🙏✨",
-    "Aapki muskaan is shehar ke saare diyon se zyada roshan hai.",
-    "Diwali ki is shahi shaam par, ye khas tohfa sirf aapke liye!"
-  ];
+  const LN=["Hey Anju! Tera bhai online aa gaya 👋","Duniya ki sabse shaitaan aur pyaari behen ke liye kuch special hai.","Happy Bhai Dooj! Ab surprise khol, no more waiting. ❤️"];
   $("idiya").addEventListener("click",()=>{
     if(introLit)return;
     introLit=true;
@@ -195,16 +191,39 @@
 
   /* Terminal typing animation */
   const TERM=[
-    ["cm","# Diwali wish deployment"],
-    ["","$ git commit -m \"Wish "+NAME+": Happy Diwali 🪔\""],
-    ["ok","✔ 128 tests passed"],
-    ["ok","✔ diyas: lit  ✔ mithai: loaded  ✔ sparkles: ready"],
-    ["wr","⚠ warning: reply latency 47h (limit: 2h)"],
-    ["","$ ./check_reply.sh --user "+NAME],
-    ["er","✖ TypeError: "+NAME+".reply is undefined"],
-    ["wr","↻ retrying in 5 days... (attempt 1/∞)"],
-    ["ok","✔ Deploy successful. Bas aap reply kar dein."]
-  ];
+    [
+        "cm",
+        "# operation_anjusmile / bhai-dooj-2026"
+    ],
+    [
+        "",
+        "$ npm run deploy:best-sister"
+    ],
+    [
+        "ok",
+        "✔ 10 memories in gallery"
+    ],
+    [
+        "ok",
+        "✔ lifelong brother support: activated"
+    ],
+    [
+        "wr",
+        "⚠ sibling roast detector: always ON"
+    ],
+    [
+        "",
+        "$ git commit -m \"Anju is my forever teammate ❤️\""
+    ],
+    [
+        "ok",
+        "✔ blessings and mithai: unlimited"
+    ],
+    [
+        "ok",
+        "✔ Deploy successful. Happy Bhai Dooj, Anju!"
+    ]
+];
   const pre=$("term");let lineIndex=0;
   function typeLine(){
     if(lineIndex>=TERM.length)return;
@@ -335,10 +354,7 @@
 
   /* Heat meter */
   let heat=24;
-  const HM=["Thodi garmi mehsoos ho rahi hai...","Bhai ne page scroll karna shuru kiya. Pankha tez karo.",
-    "Photos dekh ke bhai ke kaan laal ho gaye. 😳","Phone ka cooling fan chalu ho gaya. 😅",
-    "Diye se zyada garmi is page se aa rahi hai!","Alert: bhai ke aas-paas ka AC fail ho gaya. 🔥",
-    "Fire brigade ko call lagao. Diwali ki aag pehle hi lag gayi! 🚒"];
+  const HM=["Oho! Anju mode loading… 😂","Taang-khichai engine started!","Bachpan ki nok-jhok yaad aa gayi!","Bhai vs behen: legendary battle!","Anju jeet gayi? Okay, shayad. 😏","Lifetime drama, lifetime pyaar. ❤️","Achievement unlocked: BEST SIBLING TEAM! 🏆"];
   $("show").addEventListener("click",()=>{
     heat=Math.min(66,heat+7);
     const lvl=Math.round((heat-24)/7);
@@ -347,7 +363,7 @@
     $("mfill").style.width=(6+(heat-24)/42*94)+"%";
     $("mmsg").textContent=HM[Math.min(lvl,HM.length-1)];
     burst(W*.5,H*.5,42,["#ffab44","#f62f7c","#ffd468"]);
-    if(heat>=66)$("show").textContent="Phir se dikhayein 😈🔥";
+    if(heat>=66)$("show").textContent="Replay sibling chaos 😂";
   });
 
   /* Paanch diye, paanch duas */
@@ -368,7 +384,7 @@
       const h=document.createElement("h3"),p=document.createElement("p");
       h.textContent=d[0]+" ✨";p.textContent=d[1];rev.append(h,p);
       if(lit===DUAS.length){
-        $("hint").textContent="Paanchon diye roshan! ✨ Aapki Diwali sabse shubh ho.";
+        $("hint").textContent="Paanchon diye roshan! ✨ Five promises, always yours, Anju.";
         if(!b.dataset.finale){b.dataset.finale="1";show();}
       }
     });
@@ -376,10 +392,7 @@
   });
 
   /* Final celebration */
-  const MS=["Is button ko dabane par reply nahi jaata. Par patake zaroor phootte hain. ✨",
-    "Arre, ye reply button nahi hai. Reply ke liye aapko khud type karna padega. 😂",
-    "Ek aur dhamaka! Par reply abhi bhi pending hai. 😌",
-    "Patake bahut ho gaye. Ab jaldi se WhatsApp kholiye. ⌨️"];
+  const MS=["Ye fireworks teri smile ke naam, Anju! 🎆","Tu irritate bhi kare toh bhi favourite hai. 😂","Official certificate: iconic sister. 🏅","Repeat celebration approved by Tera Bhai. ❤️"];
   let mi=0;
   $("spark").addEventListener("click",()=>{
     show();$("finemsg").textContent=MS[++mi%MS.length];
