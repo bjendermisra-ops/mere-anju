@@ -17,25 +17,25 @@ A one-of-a-kind personal **brother → sister** celebration, completely transfor
 
 ## Add the photos using Android phone (one ZIP upload)
 
-The site expects \`assets/photos/sister-01.webp\` to \`sister-10.webp\`. Until the photo archive is committed, custom decorative fallbacks appear rather than showing the previous recipient.
+The site expects `assets/photos/sister-01.webp` to `sister-10.webp`. Until the photo archive is committed, custom decorative fallbacks appear rather than showing the previous recipient.
 
-1. Download the supplied \`anju-bhaidooj-photos.zip\` bundle.
+1. Download the supplied `anju-bhaidooj-photos.zip` bundle.
 2. Open [GitHub upload](https://github.com/bjendermisra-ops/mere-anju/upload/main).
-3. Upload this **single ZIP** to repository root, with its exact filename \`anju-bhaidooj-photos.zip\`.
+3. Upload this **single ZIP** to repository root, with its exact filename `anju-bhaidooj-photos.zip`.
 4. Tap **Commit changes**.
 
-The \`.github/workflows/import-photos.yml\` workflow automatically checks and extracts the 10 WebP photos into \`assets/photos/\`, removes the ZIP, and republishes the site via GitHub Pages. Do not unzip manually. Original older images are not referenced anywhere in the new experience. Hero is \`sister-01.webp\`.
+The `.github/workflows/import-photos.yml` workflow automatically checks and extracts the 10 WebP photos into `assets/photos/`, removes the ZIP, and republishes the site via GitHub Pages. Do not unzip manually. Original older images have been removed from the main branch and are not referenced anywhere in the new experience. Hero is `sister-01.webp`.
 
 **Privacy:** this GitHub repository and GitHub Pages site are public. Publish personal photographs only with Anju's permission.
 
 ## Source files
-- \`index.html\` — screen content, four rituals, secret letter, 3D gallery and audio controls
-- \`config.js\` — recipient, brother signature, gallery order and messages
-- \`app.js\` — all original motion, canvas particles, carousel, lightbox and other interactions, adapted for Bhai Dooj
-- \`sister.css\` — dark-royal premium responsive redesign
-- \`sister.js\` — rituals, celebration, letter reveal and sharing
-- \`styles.css\`, \`audio.js\` — original base UI and sound subsystem
-- \`tests/\` — smoke and browser checks
+- `index.html` — screen content, four rituals, secret letter, 3D gallery and audio controls
+- `config.js` — recipient, brother signature, gallery order and messages
+- `app.js` — all original motion, canvas particles, carousel, lightbox and other interactions, adapted for Bhai Dooj
+- `sister.css` — dark-royal premium responsive redesign
+- `sister.js` — rituals, celebration, letter reveal and sharing
+- `styles.css`, `audio.js` — original base UI and sound subsystem
+- `tests/` — smoke and browser checks
 
 ## Test
-\`node tests/smoke.mjs\` and existing browser Playwright tests. Audio unlocks only after the first user tap, respecting browser policy. Background kirtan attribution remains available in the settings panel.
+`node tests/smoke.mjs` and existing browser Playwright tests. Audio unlocks only after the first user tap, respecting browser policy. Background kirtan attribution remains available in the settings panel.
