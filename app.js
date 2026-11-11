@@ -143,7 +143,7 @@
   }
 
   let introLit=false,entered=false;
-  const LN=["Hey Anju! Tera bhai online aa gaya 👋","Duniya ki sabse shaitaan aur pyaari behen ke liye kuch special hai.","Happy Bhai Dooj! Ab surprise khol, no more waiting. ❤️"];
+  const LN=["Hey Motki! Tera bhai online aa gaya 👋","Duniya ki sabse shaitaan aur pyaari behen ke liye kuch special hai.","Happy Bhai Dooj! Ab surprise khol, no more waiting. ❤️"];
   $("idiya").addEventListener("click",()=>{
     if(introLit)return;
     introLit=true;
@@ -193,7 +193,7 @@
   const TERM=[
     [
         "cm",
-        "# operation_anjusmile / bhai-dooj-2026"
+        "# operation_motkismile / bhai-dooj-2026"
     ],
     [
         "",
@@ -213,7 +213,7 @@
     ],
     [
         "",
-        "$ git commit -m \"Anju is my forever teammate ❤️\""
+        "$ git commit -m \"Motki is my forever teammate ❤️\""
     ],
     [
         "ok",
@@ -221,7 +221,7 @@
     ],
     [
         "ok",
-        "✔ Deploy successful. Happy Bhai Dooj, Anju!"
+        "✔ Deploy successful. Happy Bhai Dooj, Motki!"
     ]
 ];
   const pre=$("term");let lineIndex=0;
@@ -354,7 +354,7 @@
 
   /* Heat meter */
   let heat=24;
-  const HM=["Oho! Anju mode loading… 😂","Taang-khichai engine started!","Bachpan ki nok-jhok yaad aa gayi!","Bhai vs behen: legendary battle!","Anju jeet gayi? Okay, shayad. 😏","Lifetime drama, lifetime pyaar. ❤️","Achievement unlocked: BEST SIBLING TEAM! 🏆"];
+  const HM=["Oho! Motki mode loading… 😂","Taang-khichai engine started!","Bachpan ki nok-jhok yaad aa gayi!","Bhai vs behen: legendary battle!","Motki jeet gayi? Okay, shayad. 😏","Lifetime drama, lifetime pyaar. ❤️","Achievement unlocked: BEST SIBLING TEAM! 🏆"];
   $("show").addEventListener("click",()=>{
     heat=Math.min(66,heat+7);
     const lvl=Math.round((heat-24)/7);
@@ -384,7 +384,7 @@
       const h=document.createElement("h3"),p=document.createElement("p");
       h.textContent=d[0]+" ✨";p.textContent=d[1];rev.append(h,p);
       if(lit===DUAS.length){
-        $("hint").textContent="Paanchon diye roshan! ✨ Five promises, always yours, Anju.";
+        $("hint").textContent="Paanchon diye roshan! ✨ Five promises, always yours, Motki.";
         if(!b.dataset.finale){b.dataset.finale="1";show();}
       }
     });
@@ -392,7 +392,7 @@
   });
 
   /* Final celebration */
-  const MS=["Ye fireworks teri smile ke naam, Anju! 🎆","Tu irritate bhi kare toh bhi favourite hai. 😂","Official certificate: iconic sister. 🏅","Repeat celebration approved by Tera Bhai. ❤️"];
+  const MS=["Ye fireworks teri smile ke naam, Motki! 🎆","Tu irritate bhi kare toh bhi favourite hai. 😂","Official certificate: iconic sister. 🏅","Repeat celebration approved by Tera Bhai. ❤️"];
   let mi=0;
   $("spark").addEventListener("click",()=>{
     show();$("finemsg").textContent=MS[++mi%MS.length];

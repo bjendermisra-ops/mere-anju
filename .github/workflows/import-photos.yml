@@ -1,43 +1,45 @@
-name: Import Sister Photos (Bhai Dooj)
+name: Import Roshani Motki Real Photos
 on:
   push:
     paths:
       - anju-bhaidooj-photos.zip
+      - roshani-motki-photos.zip
   workflow_dispatch:
 permissions:
   contents: write
 concurrency:
-  group: import-anju-bhaidooj
+  group: import-roshani-motki
   cancel-in-progress: false
 jobs:
   import:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           ref: main
           persist-credentials: true
-      - name: Validate and extract the ten photos
+      - name: Validate and import original images
         shell: bash
         run: |
           set -euo pipefail
-          test -s anju-bhaidooj-photos.zip
-          unzip -t anju-bhaidooj-photos.zip
+          ARCHIVE=roshani-motki-photos.zip
+          if [ ! -s "$ARCHIVE" ]; then ARCHIVE=anju-bhaidooj-photos.zip; fi
+          test -s "$ARCHIVE"
+          unzip -t "$ARCHIVE"
           mkdir -p assets/photos
-          unzip -jo anju-bhaidooj-photos.zip 'assets/photos/sister-*.webp' -d assets/photos/
+          unzip -jo "$ARCHIVE" 'assets/photos/sister-*.webp' -d assets/photos/
           for num in $(seq -w 1 10); do
             test -s "assets/photos/sister-${num}.webp"
           done
-      - name: Publish the sister gallery
+      - name: Commit ten original sister photographs
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/photos/sister-*.webp
-          git rm -f anju-bhaidooj-photos.zip
+          git rm -f --ignore-unmatch roshani-motki-photos.zip anju-bhaidooj-photos.zip
           if ! git diff --cached --quiet; then
-            git commit -m "assets: publish ten authentic Anju portraits"
+            git commit -m "assets: publish ten original photos of Roshani"
             git push origin HEAD:main
           fi

@@ -1,41 +1,32 @@
-# Mere Anju — Bhai Dooj 2026 ❤️
+# MOTKI.EXE — Roshani's Bhai Dooj Surprise ❤️😂
 
 **Live website:** https://bjendermisra-ops.github.io/mere-anju/
 
-A one-of-a-kind personal **brother → sister** celebration, completely transformed from the earlier Diwali/romantic greeting.
+Real name: **Roshani**. Her brother's affectionate nickname: **Motki**. The source code is in the existing `mere-anju` repository, but the experience and every visible greeting now feature Roshani/Motki.
 
-## Experience
-- First maroon portrait with crimson heart is the cinematic main hero
-- Ten authentic Anju photos, in the exact original shared order
-- Royal burgundy × antique gold hero, bold editorial typography, responsive layouts
-- 3D photo carousel (swipe + drag), full-screen swipe/zoom lightbox and thumbnails
-- Animated intro diya, festival particles, natural-sounding synthesized chimes and optional licensed Hare Krishna kirtan
-- Code terminal joke, 4 flip secrets, sibling chaos meter, 5 diya promises
-- New virtual Bhai Dooj rituals: tilak → aarti → mithai → digital gift
-- Secret heartfelt letter, native share sheet (with copy-link fallback)
-- No backend, no analytics, no sign-in, no personal data collection
+## This sibling surprise now includes
 
-## Add the photos using Android phone (one ZIP upload)
+- Royal burgundy + champagne-gold cinematic hero, using **the real first maroon-and-heart photo**, not AI
+- Ten original sister photos in gallery, 3D rotating ring, zoomable full-screen lightbox and captions
+- Six playful sibling complaint files to open
+- Twelve rotating Motki roasts plus a sweet virtual hug button
+- Four-question Bhai–Behen trivia game with feedback and score
+- Eight funny flip cards, the original animated terminal and sibling chaos meter
+- Five diya promises, four virtual Bhai Dooj rituals and handwritten-style secret letter
+- Lifetime sibling contract with interactive signature, celebratory confetti and a five-tap secret
+- Accessible controls, reduced-motion support and responsive 320px/390px/desktop styles
 
-The site expects `assets/photos/sister-01.webp` to `sister-10.webp`. Until the photo archive is committed, custom decorative fallbacks appear rather than showing the previous recipient.
+### Import the **10 authentic portraits** (required for images)
+The original photographs have been provided by the site owner; the site does not generate a replacement face. The website intentionally references assets/photos/sister-01.webp to sister-10.webp and will show tasteful placeholders until imported.
 
-1. Download the supplied `anju-bhaidooj-photos.zip` bundle.
-2. Open [GitHub upload](https://github.com/bjendermisra-ops/mere-anju/upload/main).
-3. Upload this **single ZIP** to repository root, with its exact filename `anju-bhaidooj-photos.zip`.
-4. Tap **Commit changes**.
+1. Download **roshani-motki-photos.zip**, containing `assets/photos/sister-01.webp` through `sister-10.webp`.
+2. Open the GitHub repo **Add file → Upload files** and upload the ZIP to the **root** of the repository as `roshani-motki-photos.zip`. Do not upload the ZIP inside the assets folder.
+3. Commit on main. The `.github/workflows/import-photos.yml` Action validates and extracts the 10 WebP images, commits them into `assets/photos/`, removes the ZIP and auto-deploys through GitHub Pages.
 
-The `.github/workflows/import-photos.yml` workflow automatically checks and extracts the 10 WebP photos into `assets/photos/`, removes the ZIP, and republishes the site via GitHub Pages. Do not unzip manually. Original older images have been removed from the main branch and are not referenced anywhere in the new experience. Hero is `sister-01.webp`.
+**Important:** This is a PUBLIC GitHub repo and public webpage. Publish the photos only with Roshani's permission.
 
-**Privacy:** this GitHub repository and GitHub Pages site are public. Publish personal photographs only with Anju's permission.
+### Technical layout
+`index.html`, `config.js`, `app.js`, `styles.css` and `audio.js` form the core site. `sister.css`/`sister.js` add the Bhai Dooj experience. `motki.css`/`motki.js` add the new nickname-based interaction and maximalist design. This keeps the proven 3D gallery, native audio settings and firework canvas intact.
 
-## Source files
-- `index.html` — screen content, four rituals, secret letter, 3D gallery and audio controls
-- `config.js` — recipient, brother signature, gallery order and messages
-- `app.js` — all original motion, canvas particles, carousel, lightbox and other interactions, adapted for Bhai Dooj
-- `sister.css` — dark-royal premium responsive redesign
-- `sister.js` — rituals, celebration, letter reveal and sharing
-- `styles.css`, `audio.js` — original base UI and sound subsystem
-- `tests/` — smoke and browser checks
-
-## Test
-`node tests/smoke.mjs` and existing browser Playwright tests. Audio unlocks only after the first user tap, respecting browser policy. Background kirtan attribution remains available in the settings panel.
+### Test
+Run `node tests/smoke.mjs` locally or view `Actions` in GitHub. Photo absence prints a warning rather than pretending that images exist. Gallery becomes photo-complete only when all ten images are uploaded.

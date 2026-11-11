@@ -11,10 +11,10 @@
   const message=document.getElementById("ritualMsg");
   const count=document.getElementById("ritualCount");
   const messages=[
-    "Tilak complete! Tujhe hamesha izzat aur khushiyan milen, Anju. ❤️",
+    "Tilak complete! Tujhe hamesha izzat aur khushiyan milen, Motki. ❤️",
     "Aarti done! Tere raaste hamesha roshan rahein. 🪔",
-    "Mithai delivered (virtually)! Real waali baaki hai. 🍬😂",
-    "Gift unlocked: Tera bhai — lifetime warranty, no returns. 🎁"
+    "Mithai delivered (virtually)! Lekin bhai ka asli tax abhi pending hai. 🍬😂",
+    "Gift unlocked: Tera certified annoying bhai — lifetime warranty, no refunds. 🎁"
   ];
   let completed=0;
   function confetti(){
@@ -49,7 +49,7 @@
   });
   document.getElementById("shareWish")?.addEventListener("click",async()=>{
     const status=document.getElementById("shareStatus");
-    const data={title:"Anju · Bhai Dooj 2026 ❤️",text:"Anju ke liye bhai ka ek special surprise ❤️",url:location.href.split("#")[0]};
+    const data={title:"Motki · Bhai Dooj 2026 ❤️",text:"Motki ke liye bhai ka ek special surprise ❤️",url:location.href.split("#")[0]};
     try{
       if(navigator.share){await navigator.share(data);status.textContent="Share sheet khul gaya ❤️";}
       else if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(data.url);status.textContent="Link copied! Ab bhej do ❤️";}

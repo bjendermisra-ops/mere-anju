@@ -47,20 +47,27 @@ console.log("PASS: "+refs.size+" referenced artwork files resolve");
 
 
 const newPhotos=Array.from({length:10},(_,i)=>"sister-"+String(i+1).padStart(2,"0")+".webp");
-assert(cfg.includes('NAME:"Anju"'),"Missing sister recipient");
-assert(cfg.includes('SENDER:"Tumhara Bhai Santosh"'),"Missing brother");
-assert(cfg.includes('hero:"assets/photos/sister-01.webp"'),"Missing first photo hero");
+const sandbox={window:{}};vm.runInNewContext(cfg,sandbox);
+assert.equal(sandbox.window.BHAI_DOOJ_CONFIG.NAME,"Motki","Motki display name missing");
+assert.equal(sandbox.window.BHAI_DOOJ_CONFIG.REAL_NAME,"Roshani","Real name Roshani missing");
+assert.equal(sandbox.window.BHAI_DOOJ_CONFIG.DATA.hero,"assets/photos/sister-01.webp","First photo hero missing");
+assert.equal(sandbox.window.BHAI_DOOJ_CONFIG.DATA.photos.length,10,"Expected ten sister portraits");
+assert.equal(sandbox.window.BHAI_DOOJ_CONFIG.FLIPS.length,8,"Expected eight funny flip cards");
 assert(!cfg.includes("purple-saree-diya-hero"),"Previous recipient must not appear");
 for(const name of newPhotos) {
   assert(cfg.includes("assets/photos/"+name),"Missing gallery reference: "+name);
   if(!fs.existsSync(path.join(root,"assets/photos",name)))console.warn("PHOTO NOT YET IMPORTED:",name);
 }
-for(const id of ["ritual","ritualBar","ritualMsg","ritualCount","letter","letterOpen","letterBody","shareWish"]) {
+for(const id of ["ritual","ritualBar","ritualMsg","ritualCount","letter","letterOpen","letterBody","shareWish","court","complaintGrid","complaintResult","roast","roastButton","hugButton","motki-quiz","quizQuestion","quizOptions","quizNext","signContract","contractResult"]) {
   assert(ids.has(id),"Missing new Bhai Dooj feature: "+id);
 }
 assert(html.includes('src="sister.js"'));
+assert(html.includes('src="motki.js"'));
+assert(html.includes('href="motki.css"'));
+assert(html.includes('class="motki-nav"'));
 assert(html.includes('href="sister.css"'));
 new vm.Script(read("sister.js"),{filename:"sister.js"});
+new vm.Script(read("motki.js"),{filename:"motki.js"});
 console.log("PASS: sister gallery configured, virtual rituals and hidden letter accessible");
 
 assert(html.includes('name="theme-color" content="#170a18"'));
