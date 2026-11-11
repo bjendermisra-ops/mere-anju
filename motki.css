@@ -70,3 +70,16 @@ main>section{scroll-margin-top:82px}
 @media(max-width:650px){.motki-nav{min-height:57px;gap:8px;flex-wrap:wrap;padding:8px 12px}.mn-logo{font-size:.95rem}.mn-links{order:3;width:100%;justify-content:space-between;overflow-x:auto}.mn-links a{padding:5px 8px;font-size:.75rem}.mn-sound{font-size:.73rem;padding:7px 11px}.sister-hero{padding-top:12px}.sister-hero .hero-copy h1{font-size:clamp(2.6rem,11vw,4.1rem)}.hero-realname{line-height:1.6;letter-spacing:.08em}.motki-court,.roast-lab,.quiz-wrap,.contract{margin:18px 10px;padding:24px 15px}.motki-stamp{display:none}.complaint-grid{gap:10px}.complaint-card{min-height:172px;padding:15px 11px}.case-emoji{font-size:1.65rem}.complaint-card strong{font-size:.97rem}.complaint-card small{font-size:.7rem}.roast-lab{display:flex;flex-direction:column;gap:12px}.roast-art{width:min(100%,270px);padding:12px}.roast-image{aspect-ratio:4/3}.roast-copy{width:100%}.roast-lab .roast-screen{min-height:130px}.contract-grid{gap:9px}.contract-grid>div{min-height:145px;padding:13px}.quiz-box{padding:18px 13px}}
 @media(max-width:360px){.complaint-grid{grid-template-columns:1fr}.complaint-card{min-height:130px}.contract-grid{grid-template-columns:1fr}.mn-links a{font-size:.7rem}}
 @media(prefers-reduced-motion:reduce){.motki-confetti{animation:none!important}.complaint-card,.sister-hero .tilt{transition:none!important}}
+
+/* Original portrait handling: keep both scrapbook collages intact. */
+#gal .photo-ring .pan:nth-child(2) img,#gal .photo-ring .pan:nth-child(6) img{object-fit:contain;background:#f4e5d6}
+#lb .lbth button:nth-child(2) img,#lb .lbth button:nth-child(6) img{object-fit:contain;background:#e6c7bb}
+#gal .photo-ring .pan:nth-child(3) img{object-position:50% 16%}
+#gal .photo-ring .pan:nth-child(5) img{object-position:50% 13%}
+#gal .photo-ring .pan:nth-child(7) img{object-position:50% 22%}
+#gal .photo-ring .pan:nth-child(9) img{object-position:50% 20%}
+.sister-hero .tilt img{object-position:50% 20%}
+#gal .gallery-shell{background:radial-gradient(ellipse at center,#fff1e3 0,#f9e5db 60%,#f1c9bf 100%);box-shadow:inset 0 0 45px #9c597b1c}
+#gal .pan{border-color:#dba96d;box-shadow:0 12px 24px #4c2b3045}
+#gal,#court,#roast,#ritual,#letter,#motki-quiz,#motki-contract{scroll-margin-top:120px}
+@media(max-width:650px){#gal,#court,#roast,#ritual,#letter,#motki-quiz,#motki-contract{scroll-margin-top:130px}}
