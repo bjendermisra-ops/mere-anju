@@ -16,14 +16,13 @@ Real name: **Roshani**. Her brother's affectionate nickname: **Motki**. The sour
 - Lifetime sibling contract with interactive signature, celebratory confetti and a five-tap secret
 - Accessible controls, reduced-motion support and responsive 320px/390px/desktop styles
 
-### Import the **10 authentic portraits** (required for images)
-The original photographs have been provided by the site owner; the site does not generate a replacement face. The website intentionally references assets/photos/sister-01.webp to sister-10.webp and will show tasteful placeholders until imported.
+### Photo gallery — all 10 original portraits installed ✅
 
-1. Download **roshani-motki-photos.zip**, containing `assets/photos/sister-01.webp` through `sister-10.webp`.
-2. Open the GitHub repo **Add file → Upload files** and upload the ZIP to the **root** of the repository as `roshani-motki-photos.zip`. Do not upload the ZIP inside the assets folder.
-3. Commit on main. The `.github/workflows/import-photos.yml` Action validates and extracts the 10 WebP images, commits them into `assets/photos/`, removes the ZIP and auto-deploys through GitHub Pages.
+All ten user-provided photographs are **now committed** to `assets/photos/sister-01.webp` through `sister-10.webp`. The maroon-outfit/heart photo `sister-01.webp` is the hero. These images were transferred from the original chat uploads without face generation or identity changes, converted into optimized WebP for mobile.
 
-**Important:** This is a PUBLIC GitHub repo and public webpage. Publish the photos only with Roshani's permission.
+Files are stored directly in this repository, not dependent on temporary external asset URLs. The importer used for initial transfer has already been removed.
+
+**Privacy:** This is a PUBLIC GitHub repo and public webpage. Keep photos published only with Roshani's permission.
 
 ### Technical layout
 `index.html`, `config.js`, `app.js`, `styles.css` and `audio.js` form the core site. `sister.css`/`sister.js` add the Bhai Dooj experience. `motki.css`/`motki.js` add the new nickname-based interaction and maximalist design. This keeps the proven 3D gallery, native audio settings and firework canvas intact.
