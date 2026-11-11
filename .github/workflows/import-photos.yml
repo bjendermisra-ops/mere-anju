@@ -1,10 +1,9 @@
-name: Import Roshani Motki Real Photos
+name: Import Roshani Motki Photos from ZIP
 on:
   push:
     paths:
-      - anju-bhaidooj-photos.zip
       - roshani-motki-photos.zip
-      - scripts/import-motki-photos.py
+      - anju-bhaidooj-photos.zip
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,29 +18,7 @@ jobs:
         with:
           ref: main
           persist-credentials: true
-      - name: Download and optimize ten authentic uploaded photos
-        if: ${{ hashFiles('scripts/import-motki-photos.py') != '' }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          python -m pip install --quiet pillow
-          python scripts/import-motki-photos.py
-          for num in $(seq -w 1 10); do
-            test -s "assets/photos/sister-${num}.webp"
-          done
-      - name: Commit imported photos from temporary upload
-        if: ${{ hashFiles('scripts/import-motki-photos.py') != '' }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/photos/sister-*.webp
-          git rm scripts/import-motki-photos.py
-          git commit -m "assets: publish Roshani's 10 real portraits for Motki gallery"
-          git push origin HEAD:main
-      - name: Validate and import original images
-        if: ${{ hashFiles('scripts/import-motki-photos.py') == '' }}
+      - name: Validate and unpack photos
         shell: bash
         run: |
           set -euo pipefail
@@ -54,8 +31,7 @@ jobs:
           for num in $(seq -w 1 10); do
             test -s "assets/photos/sister-${num}.webp"
           done
-      - name: Commit ten original sister photographs
-        if: ${{ hashFiles('scripts/import-motki-photos.py') == '' }}
+      - name: Publish original photos
         shell: bash
         run: |
           set -euo pipefail
@@ -64,6 +40,6 @@ jobs:
           git add assets/photos/sister-*.webp
           git rm -f --ignore-unmatch roshani-motki-photos.zip anju-bhaidooj-photos.zip
           if ! git diff --cached --quiet; then
-            git commit -m "assets: publish ten original photos of Roshani"
+            git commit -m "assets: import original Roshani gallery"
             git push origin HEAD:main
           fi
