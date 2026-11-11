@@ -66,6 +66,30 @@ for(const viewport of [{name:"mobile",width:390,height:844},{name:"small",width:
   await page.locator("#spark").click();
   assert.notEqual(await page.locator("#finemsg").textContent(),beforeMessage,"Finale interaction did not update");
 
+  // Real Motki special interactions — no decorative/dead buttons
+  assert.equal(await page.locator(".complaint-card").count(),6,"Six sibling complaints should render");
+  await page.locator(".complaint-card").first().click();
+  assert.match(await page.locator("#complaintCount").textContent(),/1 \/ 6/,"Complaint count did not increment");
+  await page.locator("#roastButton").click();
+  assert.match(await page.locator("#roastTally").textContent(),/1 \/ 12/,"Roast counter did not advance");
+  await page.locator("#hugButton").click();
+  assert.match(await page.locator("#roastOutput").textContent(),/behen/i,"Hug should show brotherly message");
+  for(const answer of [1,1,2,1]){
+    await page.locator("#quizOptions .quiz-option").nth(answer).click();
+    assert.match(await page.locator("#quizFeedback").textContent(),/✅/,"Correct quiz answer not accepted");
+    await page.locator("#quizNext").click();
+  }
+  assert.match(await page.locator("#quizPoints").textContent(),/4 points/,"Quiz should count 4 points");
+  assert.match(await page.locator("#quizStep").textContent(),/COMPLETE/,"Quiz result missing");
+  await page.locator("#quizNext").click();
+  assert.match(await page.locator("#quizStep").textContent(),/1 \/ 4/,"Quiz restart failed");
+  await page.locator("#signContract").click();
+  assert.match(await page.locator("#contractResult").textContent(),/Signed by MOTKI/i,"Sibling contract missing signature");
+  await page.locator("#letterOpen").click();
+  assert(await page.locator("#letterBody").isVisible(),"Secret letter did not open");
+  await page.locator("#letterOpen").click();
+  assert(!(await page.locator("#letterBody").isVisible()),"Secret letter did not close");
+
   await page.locator("#gal").scrollIntoViewIfNeeded();
   await page.waitForTimeout(180);
   const front=page.locator(".pan.is-front").first();
