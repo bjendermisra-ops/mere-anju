@@ -98,6 +98,7 @@
     });
   }
   $("quizNext")?.addEventListener("click",()=>{
+    if(current>=questions.length){current=0;points=0;renderQuiz();return;}
     current++;
     if(current>=questions.length){
       set("quizStep","MINI GAME COMPLETE");
@@ -105,7 +106,6 @@
       set("quizFeedback","Result: "+points+" / 4. Ab cake aur mithai bhai ko khila. ❤️");
       $("quizOptions")?.replaceChildren();
       const next=$("quizNext");next.textContent="Phir Se Khelo ↻";next.hidden=false;
-      next.onclick=()=>{current=0;points=0;next.onclick=null;renderQuiz();};
       celebrate(26);
     }else renderQuiz();
   });
